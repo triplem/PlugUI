@@ -13,9 +13,9 @@ module.exports = function(app) {
     response.release    = os.release(); 
     response.freemem    = os.freemem();
     response.usedmem    = os.totalmem() - os.freemem();
+    response.totalmem   = os.totalmem();
     response.loadavg    = os.loadavg();
     response.uptime     = os.uptime();
-    response.totalmem   = os.totalmem();
     response.version    = app.settings.packageJson.version;
   //  console.log("Response constructed");
     res.json(response);

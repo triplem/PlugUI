@@ -2,7 +2,7 @@ var fs    = require('fs');
 
 module.exports = function(app) {
   app.post('/api/users', function(req, res){
-    response = {};
+    response = {};  
     response.success = false;
     apicmd = req.body.apicmd;
     if (apicmd == "list") {

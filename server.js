@@ -69,8 +69,6 @@ app.configure(function(){
 	app.set("config", config);
 	app.set("packageJson", packageJson);
 
-	console.log("basepath: " + config.app.basepath);
-
 	app.register('.html', {
 		compile: function(str, options){
 			return function(locals){
@@ -96,7 +94,7 @@ app.get('/', function(req, res){
 	res.render('core.html');
 });
 
-
+// authorization, leave in server.js because this is central
 app.post('/api/auth', function(req, res) {
 	response = {};
 	response.success = false;
