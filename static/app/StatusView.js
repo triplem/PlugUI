@@ -6,7 +6,7 @@
 		
 		initialize: function() {
 			_.bindAll(this, 'render');
-			this.template = _.template($('#status-template').html());
+			this.template = "status";
 			this.loadavg = null;
 			this.totalmem = null;
 			this.usedmem = null;			
@@ -23,14 +23,25 @@
 		},
     
 		render: function() {
+			var that = this;
 
 			var context = { loadavg: this.loadavg, totalmem: this.totalmem, usedmem: this.usedmem, freemem: this.freemem, 
 											uptime: this.uptime, version: this.version, release: this.release, platform: this.platform,
 											hostname: this.hostname, arch: this.arch, type: this.type };
+	
+			var that = this;
 
-			var renderedContent = this.template(context);
-			$(this.el).html(renderedContent);
-      
+    	$.get("/static/templates/" + this.template + ".html", function(template){
+  			// template source
+      	var tmplHtml = $(template).html();
+      	// convert the source to a real underscore template
+      	var html = _.template(tmplHtml);
+      	// fill the template variables
+      	var renderedContent = html(context);
+				// finalize
+      	that.$el.html(renderedContent);
+    	});
+ 
 			return this;
 		},
 	
