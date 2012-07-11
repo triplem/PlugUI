@@ -283,5 +283,5 @@ elif apicmd == 'download':
 
 
 // GO! :D
-console.log('Starting PlugUI on port: ' +  config.app.port);
+winston.info('Starting PlugUI on port: ' +  config.app.port);
 app.listen(config.app.port);

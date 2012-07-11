@@ -85,6 +85,9 @@
 						window.authenticated = true;
 						console.log("Login request succeeded");
 						window.App.navigate("/#/dashboard", {trigger: true});
+
+						// here we should somehow disable the login view, if already logged in.
+						
 						dispatcher.trigger("didAuthenticate", null);
 					}
 					else {
