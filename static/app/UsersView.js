@@ -6,8 +6,8 @@
 		
 		initialize: function() {
 			_.bindAll(this, 'render');
-			this.template = _.template($('#user-template').html());
-			this.addform = _.template($('#adduser-template').html());
+			this.template = 'user'; //_.template($('#user-template').html());
+			this.addform = 'adduser'; //_.template($('#adduser-template').html());
 			this.collection = new Users();
 			
 			this.collection.bind('reset', this.render);
@@ -88,49 +88,43 @@
 			});	
 		},
 		render: function() {
-			var lthis = this;
 			console.log('User view rendering');
-			var renderedContent = this.template();
-			$(this.el).html(renderedContent);
-			this.collection.each(function(user) {
-				if (user.get('shell') != '/bin/false' && user.get('username').length >= 1) {				
-					var li = document.createElement('li');
-					li.setAttribute('class','user-item');
-					
-					var textspan = document.createElement('span');
-					var text = document.createTextNode(user.get('username'));
-					textspan.appendChild(text);
-					li.appendChild(textspan);
-					
-					var deletebutton = document.createElement('button');
-					deletebutton.setAttribute('class','userdelete-button');
-					var text = document.createTextNode('Delete');
-					deletebutton.appendChild(text);
-					deletebutton.onclick = function() {
-						lthis.deleteuser(user.get('username'));
-						lthis.fetch();
+			var that = this;
+
+    	$.get("/static/templates/" + this.template + ".html", function(template){
+  			// template source
+      	var tmplHtml = $(template).html();
+      	// convert the source to a real underscore template
+      	var html = _.template(tmplHtml);
+      	// fill the template variables
+      	var renderedContent = tmplHtml;
+				// finalize
+      	that.$el.html(renderedContent);
+
+				that.collection.each(function(user) {
+					if (user.get('shell') != '/bin/false' && user.get('username').length >= 1) {				
+						var li = document.createElement('li');
+						li.setAttribute('class','user-item');
+						
+						var textspan = document.createElement('span');
+						var text = document.createTextNode(user.get('username'));
+						textspan.appendChild(text);
+						li.appendChild(textspan);
+						
+						var deletebutton = document.createElement('button');
+						deletebutton.setAttribute('class','userdelete-button');
+						var text = document.createTextNode('Delete');
+						deletebutton.appendChild(text);
+						deletebutton.onclick = function() {
+							that.deleteuser(user.get('username'));
+							that.fetch();
+						};
+						li.appendChild(deletebutton);
+						
+						that.$('#userlist').append(li);
 					};
-					li.appendChild(deletebutton);
-					
-					lthis.$('#userlist').append(li);
-				}; 
-			});
-
-
-			$(this.el).append(this.addform());
-			
-			var lthis = this;
-
-			var savebutton = document.createElement('button');
-			savebutton.setAttribute('class','saveuser-button');
-			var text = document.createTextNode('Add');
-			savebutton.appendChild(text);
-			savebutton.onclick = function() {					
-				console.log('saveuser from bind');
-				lthis.saveuser(); 
-				lthis.render();
-			};
-			this.el.appendChild(savebutton);
+				}); 
+    	});
 			return this;
 		},
 		

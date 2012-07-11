@@ -8,6 +8,7 @@ var fs		= require('fs');
 var util	= require('util');
 var express = require('express');
 var mime	= require('mime');
+var winston = require('winston');
 
 var clientSessions = require('client-sessions');
 var crypto	= require('crypto');
@@ -44,7 +45,24 @@ var app = module.exports = express.createServer(
 
 );
 
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)({ level: 'warn' }),
+    new (winston.transports.File)({ filename: 'logs/plugui-node.log' })
+  ]
+});
+
+// enable web server logging; pipe those log messages through winston
+//var winstonStream = {
+//    write: function(str){
+//        logger.info(str);
+//    }
+//};
+
+
 app.configure(function(){
+//	app.use(express.logger({stream:winstonStream}));
+
 	app.use(express.bodyParser());
 	
 	//sessions in memory at the moment
