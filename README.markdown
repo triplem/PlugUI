@@ -4,6 +4,8 @@ PlugUI 2 is a file management and system admin web interface for small ARM based
 
 It will run on other distros, but the package manager is geared to use pacman. It will likely become more dependent on pacman when the code moves to using libalpm instead of running subprocesses for upgrade and other actions.
 
+NOTE: This version is currently under high development, so please see the [TODOs][TODO] for information, on how you could help out. Any help is appreciated. 
+
 
 ##Code
 
