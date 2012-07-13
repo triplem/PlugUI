@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  	================================================== -->
+
+	<title>PlugUI</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="">
+	<meta name="author" content="Arch Linux ARM">
+
+	<!--[if lt IE 9]>
+		<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Mobile Specific Metas
+  	================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	<!-- CSS
+  	================================================== -->
+
+  <!-- skeleton basic stylesheets -->
+	<link rel="stylesheet" href="/public/stylesheets/vendor/skeleton/base.css">
+	<link rel="stylesheet" href="/public/stylesheets/vendor/skeleton/skeleton.css">
+	<link rel="stylesheet" href="/public/stylesheets/vendor/skeleton/layout.css">
+	<!-- application specific stylesheet -->
+	<link rel="stylesheet" href="/public/stylesheets/plugui.css">	
+	
+	<script src="/public/javascripts/vendor/json2/json2.js"></script>		
+	<script src="/public/javascripts/vendor/jquery/jquery-1.7.2.js"></script>	
+	<script src="/public/javascripts/vendor/underscore/underscore.js"></script>
+  <script src="/public/javascripts/vendor/backbone/backbone.js"></script>
+  <script src="/public/javascripts/vendor/backbone.marionette/backbone.marionette.js"></script>
+
+  <!-- plugui specific helper methods (frontend) -->
+	<script src="/public/javascripts/plugui.js"></script>
+	
+	<!-- this is the entry point for the backbone app -->	
+	<script src="/public/javascripts/app/PlugUI.js"> </script>
+	
+	<!-- Load all the backbone views, collections, models and the main router 
+	<script src="/public/javascripts/app/AdminBar.js"> </script>
+	<script src="/public/javascripts/app/AuthView.js"> </script>
+	<script src="/public/javascripts/app/DashboardView.js"> </script>
+
+	<script src="/public/javascripts/app/PackagesView.js"> </script>
+	<script src="/public/javascripts/app/Packages.js"> </script>
+
+	<script src="/public/javascripts/app/SettingsView.js"> </script>
+	<script src="/public/javascripts/app/UploadView.js"> </script>
+	<script src="/public/javascripts/app/Users.js"> </script>
+	<script src="/public/javascripts/app/UsersView.js"> </script>
+	-->
+	<script src="/public/javascripts/app/StatusView.js"> </script>
+
+	<script>
+    $(function(){
+      // Start the app on jQuery's DOMReady. The app
+      // itself is defined in the javascripts/app/PlugUI.js file.
+      PlugUI.start();
+    });
+  </script>	
+	
+</head>
+	<body>
+		<div id="adminbar" class="top ui-panel">    </div>
+		<div id="content_area" id="container" class="container">   </div><!-- container -->
+	</body>
+</html>
