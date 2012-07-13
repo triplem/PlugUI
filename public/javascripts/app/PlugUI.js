@@ -2,7 +2,7 @@
  * PlugUI client frontend
  * Copyright © 2012 Stephen Oliver <mrsteveman1@gmail.com>
  */
-PlugUI = new Backbone.Marionette.Application();
+var PlugUI = new Backbone.Marionette.Application();
 
 PlugUI.addRegions({
 	adminbarRegion: "#adminbar",
@@ -22,7 +22,7 @@ PlugUI.vent.on("layout:rendered", function(){
 Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId, callback){
   var that = this;
   var tmpId = templateId.replace("#", "");
-  var url = "/templates/" + tmpId + ".html";
+  var url = "/public/templates/" + tmpId + ".html";
   var promise = $.ajax(url);
   promise.done(function(templateHtml){
     var $template = $(templateHtml);
