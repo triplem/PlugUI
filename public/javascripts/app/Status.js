@@ -2,6 +2,7 @@ PlugUI.module("Status", function(Status, PluginUI, Backbone, Marionette, $, _) {
 
 
   Status.Status = Backbone.Model.extend({
+        console.log("starting status model");
     default: {
       this.loadavg = null;
       this.totalmem = null;
@@ -22,6 +23,7 @@ PlugUI.module("Status", function(Status, PluginUI, Backbone, Marionette, $, _) {
   });
 
   Status.get = function() {
+    console.log("getting emtpy status");
     Status.status = new Status.Status();
 
     return Status.status;

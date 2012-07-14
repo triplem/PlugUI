@@ -44,25 +44,26 @@ var app = module.exports = express.createServer(
 
 var logger = new (winston.Logger)({
   transports: [
-    new (winston.transports.Console)({ level: 'warn' }),
+    new (winston.transports.Console)({ level: 'info' }),
     new (winston.transports.File)({ filename: 'logs/plugui-node.log' })
   ]
 });
 
 // enable web server logging; pipe those log messages through winston
-//var winstonStream = {
-//    write: function(str){
-//        logger.info(str);
-//    }
-//};
+var winstonStream = {
+    write: function(str){
+        logger.info(str);
+    }
+};
 
 
 app.configure(function(){
-//	app.use(express.logger({stream:winstonStream}));
+	app.use(express.logger({stream:winstonStream}));
 
 	app.use(express.bodyParser());
 	
 	//sessions in memory at the moment
+/*
 	app.use(express.cookieParser());
 	app.use(
 		clientSessions({
@@ -71,7 +72,8 @@ app.configure(function(){
 			duration: 24 * 60 * 60 * 1000, // 1 day
 		})
 	);
-	
+*/
+
 	app.use(express.methodOverride());
 	app.use(app.router);
 	app.use("/public", express.static(__dirname + '/public'));
@@ -83,6 +85,7 @@ app.configure(function(){
 	app.set("secret", secret);
 	app.set("config", config);
 	app.set("packageJson", packageJson);
+	app.set("logger", logger);
 
 	app.register('.html', {
 		compile: function(str, options){
@@ -106,10 +109,13 @@ require('./controller')(app);
 
 // only one page, all views and transitions handled client-side
 app.get('/', function(req, res){
+	logger.info("render index");
 	res.render('index.html');
 });
 
+
 // authorization, leave in server.js because this is central
+/*
 app.post('/api/auth', function(req, res) {
 	response = {};
 	response.success = false;
@@ -135,7 +141,8 @@ app.post('/api/auth', function(req, res) {
 	}	
 	
 });							
-		
+*/
+
 // GO! :D
-winston.info('Starting PlugUI on port: ' +  config.app.port);
+logger.info('Starting PlugUI on port: ' +  config.app.port);
 app.listen(config.app.port);

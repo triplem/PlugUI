@@ -1,22 +1,15 @@
 PlugUI.module("StatusView"), function(App, PluginUI, Backbone, Marionette, $, _) {
 
-	App.StatusView = Marionette.ItemView.extend({
+	console.log("Called StatusView");
 
+	App.StatusView = Marionette.ItemView.extend({
+		template: "#status"
 	});
 	
-	var statusView = {
-		run: function() {
-			this.status = new PlugUI.Status.get();
-
-			var view = this.getStatusView(this.status);
-
-			PlugUI.vent.trigger("app:initialized", this.status);
-		}
-
-	};
-
 	PlugUI.addInitializer(function(){
-		statusView.run();
+		statusView = new PlugUi.StatusView();
+		console.log("calling statusview initializer");
+		PlugUI.layout.main.show(statusView);
 	});
 }
 

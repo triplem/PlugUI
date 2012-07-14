@@ -3,7 +3,7 @@
 }
 
 html {
-    background: #F1F1F1 url("/static/images/wrap_noise_bck.jpg") repeat;
+    background: #F1F1F1 url("/public/images/wrap_noise_bck.jpg") repeat;
     text-shadow: 0px 1px 0px #fff;
 	
 }
@@ -271,7 +271,7 @@ img#pageloader {
 	padding-right:0px;
 	height:42px;
 	display:block;
-	background: url(/static/images/bg_body.jpg);
+	background: url(/public/images/bg_body.jpg);
 	-moz-box-shadow: 0px 1px 1px #fff , inset 0px 1px 2px #000);
     -webkit-box-shadow: 0px 1px 1px #fff, inset 0px 1px 2px #000;
     box-shadow: 0px 1px 1px #fff, inset 0px 1px 2px #000;
@@ -977,85 +977,85 @@ div#displayarea,
 
 /* custom styles for file icons */
 
-#filelist .line .file { background: url(/static/images/file.png) 8px 7px no-repeat; }
+#filelist .line .file { background: url(/public/images/file.png) 8px 7px no-repeat; }
 
 
 /* Core Styles */
-#filelist .line #loader { background: url(/static/images/loader.gif) top left no-repeat !important; }
-#filelist .line .folder { background: url(/static/images/directory.png) 8px 7px no-repeat !important ;}
-#filelist .line .expanded { background: url(/static/images/folder_open.png) 8px 7px no-repeat !important ;}
+#filelist .line #loader { background: url(/public/images/loader.gif) top left no-repeat !important; }
+#filelist .line .folder { background: url(/public/images/directory.png) 8px 7px no-repeat !important ;}
+#filelist .line .expanded { background: url(/public/images/folder_open.png) 8px 7px no-repeat !important ;}
 
-#filelist .line .wait { background: url(/static/images/spinner.gif) 8px 7px no-repeat !important; }
-#filelist .line .parentdir { background: url(/static/images/parent.png) 8px 7px no-repeat !important; }
+#filelist .line .wait { background: url(/public/images/spinner.gif) 8px 7px no-repeat !important; }
+#filelist .line .parentdir { background: url(/public/images/parent.png) 8px 7px no-repeat !important; }
 
 /* File Extensions*/
-#filelist .line .3gp { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .afp { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .afpa { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .asp { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .aspx { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .avi { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .bat { background: url(/static/images/application.png) 8px 7px no-repeat !important; }
-#filelist .line .bin { background: url(/static/images/application.png) 8px 7px no-repeat !important; }
-#filelist .line .bmp { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .c { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .cfm { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .cgi { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .cmd { background: url(/static/images/application.png) 8px 7px no-repeat !important; }
-#filelist .line .com { background: url(/static/images/application.png) 8px 7px no-repeat !important; }
-#filelist .line .cpp { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .css { background: url(/static/images/css.png) 8px 7px no-repeat !important; }
-#filelist .line .doc { background: url(/static/images/doc.png) 8px 7px no-repeat !important; }
-#filelist .line .exe { background: url(/static/images/application.png) 8px 7px no-repeat !important; }
-#filelist .line .gif { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .fla { background: url(/static/images/flash.png) 8px 7px no-repeat !important; }
-#filelist .line .h { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .htm { background: url(/static/images/html.png) 8px 7px no-repeat !important; }
-#filelist .line .html { background: url(/static/images/html.png) 8px 7px no-repeat !important; }
-#filelist .line .jar { background: url(/static/images/java.png) 8px 7px no-repeat !important; }
-#filelist .line .jpg { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .jpeg { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .js { background: url(/static/images/script.png) 8px 7px no-repeat !important; }
-#filelist .line .lasso { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .log { background: url(/static/images/txt.png) 8px 7px no-repeat !important; }
-#filelist .line .m4p { background: url(/static/images/music.png) 8px 7px no-repeat !important; }
-#filelist .line .mov { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .mp3 { background: url(/static/images/play.png) 8px 7px no-repeat !important; }
-#filelist .line .m4a { background: url(/static/images/play.png) 8px 7px no-repeat !important; }
-#filelist .line .mp4 { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .mkv { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .m4v { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .mpg { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .mpeg { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .ogg { background: url(/static/images/play.png) 8px 7px no-repeat !important; }
-#filelist .line .pcx { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .pdf { background: url(/static/images/pdf.png) 8px 7px no-repeat !important; }
-#filelist .line .php { background: url(/static/images/php.png) 8px 7px no-repeat !important; }
-#filelist .line .png { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .ppt { background: url(/static/images/ppt.png) 8px 7px no-repeat !important; }
-#filelist .line .psd { background: url(/static/images/psd.png) 8px 7px no-repeat !important; }
-#filelist .line .pl { background: url(/static/images/script.png) 8px 7px no-repeat !important; }
-#filelist .line .py { background: url(/static/images/script.png) 8px 7px no-repeat !important; }
-#filelist .line .rb { background: url(/static/images/ruby.png) 8px 7px no-repeat !important; }
-#filelist .line .rbx { background: url(/static/images/ruby.png) 8px 7px no-repeat !important; }
-#filelist .line .rhtml { background: url(/static/images/ruby.png) 8px 7px no-repeat !important; }
-#filelist .line .rpm { background: url(/static/images/linux.png) 8px 7px no-repeat !important; }
-#filelist .line .ruby { background: url(/static/images/ruby.png) 8px 7px no-repeat !important; }
-#filelist .line .sh { background: url(/static/images/script.png) 8px 7px no-repeat !important; }
-#filelist .line .sql { background: url(/static/images/db.png) 8px 7px no-repeat !important; }
-#filelist .line .swf { background: url(/static/images/flash.png) 8px 7px no-repeat !important; }
-#filelist .line .tif { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .tiff { background: url(/static/images/picture.png) 8px 7px no-repeat !important; }
-#filelist .line .txt { background: url(/static/images/txt.png) 8px 7px no-repeat !important; }
-#filelist .line .vb { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .wav { background: url(/static/images/music.png) 8px 7px no-repeat !important; }
-#filelist .line .wmv { background: url(/static/images/film.png) 8px 7px no-repeat !important; }
-#filelist .line .xls { background: url(/static/images/xls.png) 8px 7px no-repeat !important; }
-#filelist .line .xml { background: url(/static/images/code.png) 8px 7px no-repeat !important; }
-#filelist .line .zip { background: url(/static/images/zip.png) 8px 7px no-repeat !important; }
-#filelist .line .tar { background: url(/static/images/zip.png) 8px 7px no-repeat !important; }
-#filelist .line .bz2 { background: url(/static/images/zip.png) 8px 7px no-repeat !important; }
-#filelist .line .gz { background: url(/static/images/zip.png) 8px 7px no-repeat !important; }
+#filelist .line .3gp { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .afp { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .afpa { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .asp { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .aspx { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .avi { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .bat { background: url(/public/images/application.png) 8px 7px no-repeat !important; }
+#filelist .line .bin { background: url(/public/images/application.png) 8px 7px no-repeat !important; }
+#filelist .line .bmp { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .c { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .cfm { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .cgi { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .cmd { background: url(/public/images/application.png) 8px 7px no-repeat !important; }
+#filelist .line .com { background: url(/public/images/application.png) 8px 7px no-repeat !important; }
+#filelist .line .cpp { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .css { background: url(/public/images/css.png) 8px 7px no-repeat !important; }
+#filelist .line .doc { background: url(/public/images/doc.png) 8px 7px no-repeat !important; }
+#filelist .line .exe { background: url(/public/images/application.png) 8px 7px no-repeat !important; }
+#filelist .line .gif { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .fla { background: url(/public/images/flash.png) 8px 7px no-repeat !important; }
+#filelist .line .h { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .htm { background: url(/public/images/html.png) 8px 7px no-repeat !important; }
+#filelist .line .html { background: url(/public/images/html.png) 8px 7px no-repeat !important; }
+#filelist .line .jar { background: url(/public/images/java.png) 8px 7px no-repeat !important; }
+#filelist .line .jpg { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .jpeg { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .js { background: url(/public/images/script.png) 8px 7px no-repeat !important; }
+#filelist .line .lasso { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .log { background: url(/public/images/txt.png) 8px 7px no-repeat !important; }
+#filelist .line .m4p { background: url(/public/images/music.png) 8px 7px no-repeat !important; }
+#filelist .line .mov { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .mp3 { background: url(/public/images/play.png) 8px 7px no-repeat !important; }
+#filelist .line .m4a { background: url(/public/images/play.png) 8px 7px no-repeat !important; }
+#filelist .line .mp4 { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .mkv { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .m4v { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .mpg { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .mpeg { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .ogg { background: url(/public/images/play.png) 8px 7px no-repeat !important; }
+#filelist .line .pcx { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .pdf { background: url(/public/images/pdf.png) 8px 7px no-repeat !important; }
+#filelist .line .php { background: url(/public/images/php.png) 8px 7px no-repeat !important; }
+#filelist .line .png { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .ppt { background: url(/public/images/ppt.png) 8px 7px no-repeat !important; }
+#filelist .line .psd { background: url(/public/images/psd.png) 8px 7px no-repeat !important; }
+#filelist .line .pl { background: url(/public/images/script.png) 8px 7px no-repeat !important; }
+#filelist .line .py { background: url(/public/images/script.png) 8px 7px no-repeat !important; }
+#filelist .line .rb { background: url(/public/images/ruby.png) 8px 7px no-repeat !important; }
+#filelist .line .rbx { background: url(/public/images/ruby.png) 8px 7px no-repeat !important; }
+#filelist .line .rhtml { background: url(/public/images/ruby.png) 8px 7px no-repeat !important; }
+#filelist .line .rpm { background: url(/public/images/linux.png) 8px 7px no-repeat !important; }
+#filelist .line .ruby { background: url(/public/images/ruby.png) 8px 7px no-repeat !important; }
+#filelist .line .sh { background: url(/public/images/script.png) 8px 7px no-repeat !important; }
+#filelist .line .sql { background: url(/public/images/db.png) 8px 7px no-repeat !important; }
+#filelist .line .swf { background: url(/public/images/flash.png) 8px 7px no-repeat !important; }
+#filelist .line .tif { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .tiff { background: url(/public/images/picture.png) 8px 7px no-repeat !important; }
+#filelist .line .txt { background: url(/public/images/txt.png) 8px 7px no-repeat !important; }
+#filelist .line .vb { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .wav { background: url(/public/images/music.png) 8px 7px no-repeat !important; }
+#filelist .line .wmv { background: url(/public/images/film.png) 8px 7px no-repeat !important; }
+#filelist .line .xls { background: url(/public/images/xls.png) 8px 7px no-repeat !important; }
+#filelist .line .xml { background: url(/public/images/code.png) 8px 7px no-repeat !important; }
+#filelist .line .zip { background: url(/public/images/zip.png) 8px 7px no-repeat !important; }
+#filelist .line .tar { background: url(/public/images/zip.png) 8px 7px no-repeat !important; }
+#filelist .line .bz2 { background: url(/public/images/zip.png) 8px 7px no-repeat !important; }
+#filelist .line .gz { background: url(/public/images/zip.png) 8px 7px no-repeat !important; }
 
 
 /* user list */

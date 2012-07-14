@@ -40,13 +40,16 @@
 	<script src="/public/javascripts/vendor/underscore/underscore.js"></script>
   <script src="/public/javascripts/vendor/backbone/backbone.js"></script>
   <script src="/public/javascripts/vendor/backbone.marionette/backbone.marionette.js"></script>
+  <script src="/public/javascripts/vendor/backbone.marionette/backbone.marionette.async.js"></script>
 
   <!-- plugui specific helper methods (frontend) -->
 	<script src="/public/javascripts/plugui.js"></script>
 	
 	<!-- this is the entry point for the backbone app -->	
 	<script src="/public/javascripts/app/PlugUI.js"> </script>
-	
+	<script src="/public/javascripts/app/PlugUIRouting.js"> </script>
+	<script src="/public/javascripts/app/PlugUILayout.js"> </script>
+
 	<!-- Load all the backbone views, collections, models and the main router 
 	<script src="/public/javascripts/app/AdminBar.js"> </script>
 	<script src="/public/javascripts/app/AuthView.js"> </script>
@@ -66,13 +69,14 @@
     $(function(){
       // Start the app on jQuery's DOMReady. The app
       // itself is defined in the javascripts/app/PlugUI.js file.
+      console.log("before app start");
       PlugUI.start();
+      console.log("after app start");
     });
   </script>	
 	
 </head>
 	<body>
-		<div id="adminbar" class="top ui-panel">    </div>
-		<div id="content_area" id="container" class="container">   </div><!-- container -->
+		<div id="content_area" id="content" class="container">   </div><!-- container -->
 	</body>
 </html>

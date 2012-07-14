@@ -1,8 +1,13 @@
 var os = require('os');
 
 module.exports = function(app) {
+  var logger = app.settings.logger;
+
+  logger.info("starting api-call to status");
+
   // API for status
-  app.post('/api/status', function(req,res) {
+  app.get('/api/status', function(req,res) {
+    logger.info("receiving call on /api/status");
     response = {};
   //  console.log("Constructing status response");
     response.success    = true;
