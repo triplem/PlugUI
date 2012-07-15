@@ -17,12 +17,31 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
       arch: "",
       type: ""      
     },
-    urlRoot: '/api/status'
+    urlRoot: function() {
+      return '/api/status';
+    },
+
+    fetchStatus: function() {
+      var status = new Status.Status();
+      status.fetch({
+        success: function(data, response){
+          console.log("JSON: " + JSON.stringify(data));
+//          var model = new Status.Status(response);
+          Status.showStatus(response);
+        }
+      })
+    }
   });
 
-  Status.showStatus = function(status){
+  Status.showUniqueStatus = function() {
+    var status = new Status.Status();
+    status.fetchStatus();
+  }
+
+  Status.showStatus = function(model){
     console.log("called correctly");
     console.log("putting statusView on layout");
+    var status = new Status.Status(model);
     var statusView = new Status.StatusView({
       model: status
     });
@@ -37,7 +56,7 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
 
   Status.Router = Backbone.Marionette.AppRouter.extend({
     appRoutes: {
-      "": "showStatus"
+      "": "showUniqueStatus"
     }
   });  
 
@@ -46,7 +65,6 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
       controller: PlugUI.Status
     }); 
 
-    var status = new Status.Status();
-    Status.showStatus(status);
+    Status.showUniqueStatus();
   })
 })
