@@ -1,31 +1,52 @@
-PlugUI.module("Status", function(Status, PluginUI, Backbone, Marionette, $, _) {
-
-
+// this is the controller for the status 
+// contains basically the model of the "sub-app"
+PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
+  // define the model
   Status.Status = Backbone.Model.extend({
-        console.log("starting status model");
-    default: {
-      this.loadavg = null;
-      this.totalmem = null;
-      this.usedmem = null;      
-      this.freemem = null;
-      this.uptime = null;
-      this.version = null;
+    defaults: {
+      loadavg: [],
+      totalmem: 0,
+      usedmem: 0,      
+      freemem: 0,
+      uptime: 0,
+      version: "",
 
-      this.release = null;
-      this.platform = null;
-      this.hostname = null;
-      this.arch = null;
-      this.type = null;      
+      release: "",
+      platform: "",
+      hostname: "",
+      arch: "",
+      type: ""      
     },
-
     urlRoot: '/api/status'
-
   });
 
-  Status.get = function() {
-    console.log("getting emtpy status");
-    Status.status = new Status.Status();
+  Status.showStatus = function(status){
+    console.log("called correctly");
+    console.log("putting statusView on layout");
+    var statusView = new Status.StatusView({
+      model: status
+    });
 
-    return Status.status;
-  };
+    PlugUI.layout.main.show(statusView);
+  }
+
+  Status.StatusView = Backbone.Marionette.ItemView.extend({
+    tagName: "li",
+    template: "#status"
+  });
+
+  Status.Router = Backbone.Marionette.AppRouter.extend({
+    appRoutes: {
+      "": "showStatus"
+    }
+  });  
+
+  PlugUI.addInitializer(function(options){
+    PlugUI.router = new Status.Router({
+      controller: PlugUI.Status
+    }); 
+
+    var status = new Status.Status();
+    Status.showStatus(status);
+  })
 })

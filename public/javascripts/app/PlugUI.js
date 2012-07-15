@@ -1,21 +1,53 @@
 /*
- * PlugUI client frontend
+ * This is the main PlugUi application
+
  * Copyright © 2012 Stephen Oliver <mrsteveman1@gmail.com>
  */
 var PlugUI = new Backbone.Marionette.Application();
-
-  console.log("starting Application");
-
+ 
 PlugUI.addRegions({
-	contentRegion: "#container"
+  contentRegion: "#content",
+  adminBarRegion: "#adminbar"
 });
 
 PlugUI.vent.on("layout:rendered", function(){
-  console.log("starting history");
   if (Backbone.history) {
     Backbone.history.start();    
   }
+})
+
+/*
+Status = Backbone.Model.extend({
+  defaults: {
+    loadavg: [],
+    totalmem: 0,
+    usedmem: 0,      
+    freemem: 0,
+    uptime: 0,
+    version: "1.0.1",
+
+    release: "",
+    platform: "",
+    hostname: "",
+    arch: "",
+    type: ""      
+  },
+  urlRoot: '/api/status'
 });
+
+StatusView = Backbone.Marionette.ItemView.extend({
+  tagName: "li",
+  template: "#status"
+});
+
+PlugUI.addInitializer(function(options){
+  var status = new Status();
+  var statusView = new StatusView({
+    model: status
+  });
+  PlugUI.contentRegion.show(statusView);
+})
+*/
 
 // Set up async template loading from the server. A view with
 // a template of `"#my-view-template"` will load a file called
