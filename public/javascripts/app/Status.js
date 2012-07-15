@@ -65,6 +65,12 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
       controller: PlugUI.Status
     }); 
 
+    var entry = new PlugUI.AdminBar.Entry();
+    entry.set("image", "http://test.url");
+    entry.set("name", "Status");
+    entry.set("route", "This is a route");
+    PlugUI.AdminBar.addEntry(entry);
+
     Status.showUniqueStatus();
   })
 })

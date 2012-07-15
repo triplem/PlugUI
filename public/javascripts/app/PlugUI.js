@@ -6,8 +6,8 @@
 var PlugUI = new Backbone.Marionette.Application();
  
 PlugUI.addRegions({
-  contentRegion: "#content",
-  adminBarRegion: "#adminbar"
+//  adminBarRegion: "#adminbar",
+  contentRegion: "#content"
 });
 
 PlugUI.vent.on("layout:rendered", function(){

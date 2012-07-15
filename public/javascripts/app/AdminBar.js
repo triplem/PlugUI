@@ -1,3 +1,42 @@
+// this is the controller for the status 
+// contains basically the model of the "sub-app"
+PlugUI.module("AdminBar", function(AdminBar, PlugUI, Backbone, Marionette, $, _) {
+
+  AdminBar.Entry = Backbone.Model.extend({
+    defaults: {
+      image: "",
+      name: "",
+      route: ""
+    }
+  });
+
+  AdminBar.Entries = Backbone.Collection.extend({
+  	model: AdminBar.Entry
+  });
+
+  AdminBar.addEntry = function(entry) {
+  	AdminBar.entries.add(entry);
+  };
+
+  AdminBar.View = Backbone.Marionette.CollectionView.extend({
+    template: "#adminbar"
+  });
+
+  AdminBar.showAdminBar = function(model){
+    console.log("called correctly");
+    var adminBarView = new AdminBar.View({
+      collection: AdminBar.entries
+    });
+
+    PlugUI.layout.adminbar.show(adminBarView);
+  };
+
+  PlugUI.addInitializer(function(){
+  	AdminBar.entries = new AdminBar.Entries();
+  });
+})
+
+/*
 (function($) {
 
 	window.AdminBar = Backbone.View.extend({
@@ -81,3 +120,4 @@
 		}
 	});	
 })(jQuery);
+*/
