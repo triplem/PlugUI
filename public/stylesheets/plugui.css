@@ -220,8 +220,8 @@ width:100%;
 img#pageloader {
 	width:20px;
 	height:20px;
-    display:none;
-    position:absolute;
+  display:none;
+  position:absolute;
 	left:132px;
 	top:74px;
 }
@@ -239,20 +239,17 @@ img#pageloader {
 
 
 .ui-panel {
-    
-    height:42px;
-    
-    padding:0;
-    display:block;
-    list-style:none;
-
+  height:42px;    
+  padding:0;
+  display:block;
+  list-style:none;
 }
 
-#adminbar.top {
+#navbar.top {
 	position:relative;
-    top:0px;
-    left:0px;
-    right:0px;
+  top:0px;
+  left:0px;
+  right:0px;
 	margin:0px 0px 48px 0px;
 }
 
@@ -264,8 +261,8 @@ img#pageloader {
 	margin:48px 0px 0px 0px;
 }
 
-#adminbar div.inset {
-    margin:0;
+#navbar div.inset {
+  margin:0;
 	padding-left:0px;
 	padding-top:6px;
 	padding-right:0px;
@@ -273,56 +270,52 @@ img#pageloader {
 	display:block;
 	background: url(/public/images/bg_body.jpg);
 	-moz-box-shadow: 0px 1px 1px #fff , inset 0px 1px 2px #000);
-    -webkit-box-shadow: 0px 1px 1px #fff, inset 0px 1px 2px #000;
-    box-shadow: 0px 1px 1px #fff, inset 0px 1px 2px #000;
+  -webkit-box-shadow: 0px 1px 1px #fff, inset 0px 1px 2px #000;
+  box-shadow: 0px 1px 1px #fff, inset 0px 1px 2px #000;
 	height:42px;
-	width:100%;
-	
-	display:none;
-	
+	width:100%;	
+	display:none;	
 }
 
-#adminbar div.inset ul li {
-    float:left;
-    height:42px;
+#navbar div.inset ul li {
+  float:left;
+  height:42px;
 	width:48px;
-
 	position:relative;
 	margin-bottom:0px;	
-
 }
 
 .ui-panel ul.gradient  {
-    margin:0;
+  margin:0;
 	padding-left:0px;
 	padding-right:0px;
 	height:42px;
 	display:block;
-    -moz-box-shadow: 0px 1px 2px #565656 , inset 0px 1px 0px rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 1px 2px #565656, inset 0px 1px 0px rgba(255, 255, 255, 0.5);
-    box-shadow: 0px 1px 2px #565656 , inset 0px 1px 0px rgba(255, 255, 255, 0.5);
-    background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#BBB));
-    background: -moz-linear-gradient(top, #DDD, #BBB);
-    background: -o-linear-gradient(top, #DDD, #BBB);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dddddd, endColorstr=#bbbbbb);
+  -moz-box-shadow: 0px 1px 2px #565656 , inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0px 1px 2px #565656, inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 1px 2px #565656 , inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#BBB));
+  background: -moz-linear-gradient(top, #DDD, #BBB);
+  background: -o-linear-gradient(top, #DDD, #BBB);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dddddd, endColorstr=#bbbbbb);
 }
 
 
 .ui-panel ul.gradient li {
-    float:left;
-    height:42px;
+  float:left;
+  height:42px;
 	width:48px;
     /*border-right: 1px solid #bbb;*/
 	position:relative;
 	margin-bottom:0px;
 	-moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
-    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
 	
-    background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#BBB));
-    background: -moz-linear-gradient(top, #DDD, #BBB);
-    background: -o-linear-gradient(top, #DDD, #BBB);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dddddd, endColorstr=#bbbbbb);
+  background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#BBB));
+  background: -moz-linear-gradient(top, #DDD, #BBB);
+  background: -o-linear-gradient(top, #DDD, #BBB);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#dddddd, endColorstr=#bbbbbb);
 	
 	border-left: #F4F5F6 1px solid;
 	border-right: #9BA5AE 1px solid;
@@ -352,7 +345,6 @@ img#pageloader {
 	-webkit-box-shadow: inset 0px 1px 3px #333;
 	box-shadow: inset 0px 1px 3px #333;
 	
-	
 	background: -webkit-gradient(linear, left top, left bottom, from(#DDD), to(#BBB));
 	background: -webkit-gradient(linear, left top, left bottom, from(#D0D0D0), to(#B0B0B0));
 	background: -moz-linear-gradient(top, #D0D0D0, #B0B0B0);
@@ -371,8 +363,6 @@ img#pageloader {
 	cursor:pointer;
 }
 
-
-
 .ui-panel ul.gradient li#controlbutton:active {
 	top:1px;
 }
@@ -386,14 +376,10 @@ img#pageloader {
 	right:50px;
 }
 
-
-
-
 .ui-panel ul.gradient li#userbutton {
 	width:48px;
 	text-align:center;
 	cursor:pointer;
-	
 }
 
 .ui-panel ul.gradient li#userbutton #user-icon {
@@ -401,7 +387,6 @@ img#pageloader {
 	padding-left: 2px;	
 	opacity:0.5;
 }
-
 
 .ui-panel ul.gradient li#userbutton:active {
 	top:1px;
@@ -415,8 +400,6 @@ img#pageloader {
 .ui-panel ul.gradient li:active {
 	position:relative;
 	top:1px;
-	
-	
 }
 
 .ui-panel ul.gradient li.selected a span {
@@ -425,38 +408,37 @@ img#pageloader {
 }
 
 .ui-panel ul.gradient li a,
-.ui-panel ul.gradient li a:visited {
-    
-    height:100%;
-    width:100%;
-    display:inline-block;
-    color:#787878;
-    text-shadow:0px 1px 0px #fff;  
+.ui-panel ul.gradient li a:visited {  
+  height:100%;
+  width:100%;
+  display:inline-block;
+  color:#787878;
+  text-shadow:0px 1px 0px #fff;  
 	cursor:default
 }
 
 .ui-panel ul.gradient li a:hover {
-    color:#898989;
-    
+  color:#898989;    
 }
+
 .ui-panel ul.gradient li a span {
-    font-size:1.0em;
-    font-weight:bold;
-    padding-top:6px;
+  font-size:1.0em;
+  font-weight:bold;
+  padding-top:6px;
 	padding-bottom:6px;
 
-    display:inline-block;
+  display:inline-block;
 	opacity:0.5;
 }
 
 .ui-panel ul.gradient li a span#home-icon {
 	padding-left:12px;
-    padding-top:9px;
+  padding-top:9px;
 }
 
-.ui-panel ul.gradient li a span#dashboard-icon {
+.ui-panel ul.gradient li a span#status-icon {
 	padding-left:10px;
-    padding-top:7px;
+  padding-top:7px;
 }
 .ui-panel ul.gradient li a span#posts-icon {
 	padding-left:12px;
@@ -468,7 +450,7 @@ img#pageloader {
 }
 .ui-panel ul.gradient li a span#tickets-icon {
 	padding-left:12px;
-    padding-top:9px;
+  padding-top:9px;
 }
 .ui-panel ul.gradient li a span#settings-icon {
 	padding-left:11px;
@@ -477,21 +459,17 @@ img#pageloader {
 .ui-panel ul.gradient li a span#logs-icon {
 	padding-left:12px;
 	padding-top:12px;
-
 }
 
 .ui-panel ul.gradient li a span#packages-icon {
 	padding-left:12px;
 	padding-top:8px;
-
 }
 
 
 .ui-panel ul.gradient li a span#music-icon {
 	padding-left:16px;
 	padding-top:8px;
-	
-
 }
 
 /* dashboard */

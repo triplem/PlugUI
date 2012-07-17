@@ -9,7 +9,7 @@ PlugUI.module("Layout", function(Layout, PlugUI, Backbone, Marionette, $, _){
     // content area where the email list or contact list
     // is displayed.
     regions: {
-      navigation: "#adminbar",
+      navbar: "#navbar",
       main: "#main"
     }
   });

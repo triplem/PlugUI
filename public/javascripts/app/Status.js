@@ -39,18 +39,19 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
   }
 
   Status.showStatus = function(model){
-    console.log("called correctly");
-    console.log("putting statusView on layout");
     var status = new Status.Status(model);
     var statusView = new Status.StatusView({
       model: status
     });
 
     PlugUI.layout.main.show(statusView);
+    PlugUI.Navigation.showNavigation();
+    console.log("added entry to adminbar");
   }
 
   Status.StatusView = Backbone.Marionette.ItemView.extend({
-    tagName: "li",
+    tagName: "div",
+    className: "one-third column statusbox",
     template: "#status"
   });
 
@@ -65,11 +66,15 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
       controller: PlugUI.Status
     }); 
 
-    var entry = new PlugUI.AdminBar.Entry();
-    entry.set("image", "http://test.url");
+    var entry = new PlugUI.Navigation.Entry();
+    entry.set("image", "/public/images/app/status.png");
     entry.set("name", "Status");
-    entry.set("route", "This is a route");
-    PlugUI.AdminBar.addEntry(entry);
+    entry.set("route", "/#/status");
+    entry.set("htmlId", "status-icon");
+    entry.set("seqNum", 1);
+    console.log("adding entry to adminbar: " + entry.get("name"));
+    PlugUI.Navigation.addEntry(entry);
+
 
     Status.showUniqueStatus();
   })

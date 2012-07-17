@@ -3,12 +3,6 @@
 
 PlugUI.module("Routing", function(Routing, PlugUI, Backbone, Marionette, $, _){
 
-  PlugUI.Router = Backbone.Marionette.AppRouter.extend({
-    appRoutes: {
-      "": "status"
-    }
-  });
-
   // Public API
   // ----------
 

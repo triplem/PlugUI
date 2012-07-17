@@ -10,11 +10,19 @@ PlugUI.addRegions({
   contentRegion: "#content"
 });
 
-PlugUI.vent.on("layout:rendered", function(){
-  if (Backbone.history) {
-    Backbone.history.start();    
+//PlugUI.vent.on("layout:rendered", function(){
+//  if (Backbone.history) {
+//    Backbone.history.start();    
+//  }
+//});
+
+PlugUI.bind("initialize:after", function(options){
+  if (Backbone.history){
+    Backbone.history.start();
   }
-})
+
+  PlugUI.Navigation.showNavigation();
+});
 
 /*
 Status = Backbone.Model.extend({
@@ -67,4 +75,3 @@ Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId, 
     callback(template);
   });
 }
-

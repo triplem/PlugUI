@@ -1,39 +1,49 @@
 // this is the controller for the status 
 // contains basically the model of the "sub-app"
-PlugUI.module("AdminBar", function(AdminBar, PlugUI, Backbone, Marionette, $, _) {
+PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $, _) {
 
-  AdminBar.Entry = Backbone.Model.extend({
+  Navigation.Entry = Backbone.Model.extend({
     defaults: {
       image: "",
       name: "",
-      route: ""
+      route: "",
+      htmlId: "",
+      style: "",
+      seqNum: 100
     }
   });
 
-  AdminBar.Entries = Backbone.Collection.extend({
-  	model: AdminBar.Entry
+  Navigation.Entries = Backbone.Collection.extend({
+  	model: Navigation.Entry,
+  	comparator: function(entry) {
+  		return entry.get("seqNum");
+  	}
   });
 
-  AdminBar.addEntry = function(entry) {
-  	AdminBar.entries.add(entry);
+  var NavigationView = Backbone.Marionette.ItemView.extend({
+  	tagName: "ul",
+  	className: "gradient",
+  	template: "#navigation"
+  });
+
+  Navigation.addEntry = function(entry) {
+  	console.log("addEntry called with: " + entry.get("name"));
+  	Navigation.entries.add(entry);
   };
 
-  AdminBar.View = Backbone.Marionette.CollectionView.extend({
-    template: "#adminbar"
-  });
-
-  AdminBar.showAdminBar = function(model){
+  Navigation.showNavigation = function() {
     console.log("called correctly");
-    var adminBarView = new AdminBar.View({
-      collection: AdminBar.entries
+    var navigationView = new NavigationView({
+      collection: Navigation.entries
     });
 
-    PlugUI.layout.adminbar.show(adminBarView);
+    PlugUI.layout.navbar.show(navigationView);
   };
 
   PlugUI.addInitializer(function(){
-  	AdminBar.entries = new AdminBar.Entries();
+  	Navigation.entries = new Navigation.Entries();
   });
+
 })
 
 /*
