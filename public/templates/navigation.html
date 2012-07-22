@@ -1,12 +1,12 @@
 <script type="text/template" id="navigation">
   <li class="first" id="userbutton">
     <div id="user-icon">
-      <img src="/public/images/app/user.png" title="Userpanel"/>
+      <img src="/public/images/app/navbar/user.png" title="Userpanel"/>
     </div>
   </li>
 
   <% _.each(items, function(navEntry) { %>
-    <li class="adminbutton">
+    <li class="adminbutton <%= navEntry.class %>">
       <a href="<%= navEntry.route %>">
         <span id="<%= navEntry.htmlId %>" style="<%= navEntry.style %>">
           <img src="<%= navEntry.image %>" title="<%= navEntry.name %>"/>          

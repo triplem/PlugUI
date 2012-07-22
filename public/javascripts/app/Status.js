@@ -45,8 +45,8 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
     });
 
     PlugUI.layout.main.show(statusView);
-    PlugUI.Navigation.showNavigation();
-    console.log("added entry to adminbar");
+    // add trigger, so that navbar is shown ;-)
+    PlugUI.vent.trigger("navbar:show", "status-icon");
   }
 
   Status.StatusView = Backbone.Marionette.ItemView.extend({
@@ -57,25 +57,32 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
 
   Status.Router = Backbone.Marionette.AppRouter.extend({
     appRoutes: {
-      "": "showUniqueStatus"
+      "status": "showUniqueStatus"
     }
   });  
 
+  PlugUI.vent.bind("status:show", function(){
+    PlugUI.Status.showUniqueStatus();
+  });
+
   PlugUI.addInitializer(function(options){
-    PlugUI.router = new Status.Router({
+    Status.router = new Status.Router({
       controller: PlugUI.Status
     }); 
 
+    PlugUI.vent.trigger("routing:started");    
+
+    // add entry to navbar
     var entry = new PlugUI.Navigation.Entry();
-    entry.set("image", "/public/images/app/status.png");
+    entry.set("image", "/public/images/app/navbar/status.png");
     entry.set("name", "Status");
-    entry.set("route", "/#/status");
+    entry.set("route", "/#status");
     entry.set("htmlId", "status-icon");
     entry.set("seqNum", 1);
     console.log("adding entry to adminbar: " + entry.get("name"));
     PlugUI.Navigation.addEntry(entry);
 
-
-    Status.showUniqueStatus();
+//    Status.showUniqueStatus();
+    PlugUI.vent.trigger("status:show");
   })
 })

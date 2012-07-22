@@ -10,52 +10,10 @@ PlugUI.addRegions({
   contentRegion: "#content"
 });
 
-//PlugUI.vent.on("layout:rendered", function(){
-//  if (Backbone.history) {
-//    Backbone.history.start();    
-//  }
-//});
-
-PlugUI.bind("initialize:after", function(options){
-  if (Backbone.history){
-    Backbone.history.start();
-  }
-
+PlugUI.bind("routing:started", function(options){
+  Backbone.history.start();
   PlugUI.Navigation.showNavigation();
 });
-
-/*
-Status = Backbone.Model.extend({
-  defaults: {
-    loadavg: [],
-    totalmem: 0,
-    usedmem: 0,      
-    freemem: 0,
-    uptime: 0,
-    version: "1.0.1",
-
-    release: "",
-    platform: "",
-    hostname: "",
-    arch: "",
-    type: ""      
-  },
-  urlRoot: '/api/status'
-});
-
-StatusView = Backbone.Marionette.ItemView.extend({
-  tagName: "li",
-  template: "#status"
-});
-
-PlugUI.addInitializer(function(options){
-  var status = new Status();
-  var statusView = new StatusView({
-    model: status
-  });
-  PlugUI.contentRegion.show(statusView);
-})
-*/
 
 // Set up async template loading from the server. A view with
 // a template of `"#my-view-template"` will load a file called

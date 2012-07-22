@@ -7,6 +7,7 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
       image: "",
       name: "",
       route: "",
+      event: "",
       htmlId: "",
       style: "",
       seqNum: 100
@@ -23,7 +24,16 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   var NavigationView = Backbone.Marionette.ItemView.extend({
   	tagName: "ul",
   	className: "gradient",
-  	template: "#navigation"
+  	template: "#navigation",
+
+    events: {
+      'click .adminbutton': 'click'
+    },
+
+    click: function(adminbutton) {
+      console.log("adminbutton clicked");
+      console.log("adminbutton: " + adminbutton);
+    }
   });
 
   Navigation.addEntry = function(entry) {
@@ -32,7 +42,28 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   };
 
   Navigation.showNavigation = function() {
+/*
     console.log("called correctly");
+    var navigationView = new NavigationView({
+      collection: Navigation.entries
+    });
+
+    PlugUI.layout.navbar.show(navigationView);
+*/
+		PlugUI.Navigation.showNavigation(undefined);
+  };
+
+  Navigation.showNavigation = function(entryId) {
+    console.log("called correctly");
+    if (entryId != undefined) {
+    	console.log("called with entryId");
+    	Navigation.entries.each(function(entry){
+  			if (entry.get("htmlId") == entryId) {
+  				entry.set("class", "selected");
+  			}
+    	})
+    }
+
     var navigationView = new NavigationView({
       collection: Navigation.entries
     });
@@ -43,6 +74,10 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   PlugUI.addInitializer(function(){
   	Navigation.entries = new Navigation.Entries();
   });
+
+ 	PlugUI.vent.on("navbar:show", function(entryId){
+ 		PlugUI.Navigation.showNavigation(entryId);
+ 	}) 
 
 })
 
