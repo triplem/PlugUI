@@ -131,6 +131,11 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 **/		
 	});
 
+	PlugUI.vent.on("packages:show", function(){
+		console.log("showing packages");
+		Package.showPackages();
+	});
+
 	Package.showPackages = function(){
 	    var package = new Package.Packages();
 	//    status.fetchStatus();
@@ -151,16 +156,14 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
       controller: PlugUI.Package
     }); 
 
-    PlugUI.vent.trigger("routing:started");    
-
-    console.log("controller: " + Package.controller);
+    PlugUI.vent.trigger("routing:started");
 
     // add entry to navbar
     var entry = new PlugUI.Navigation.Entry();
     entry.set("image", "/public/images/app/navbar/packages.png");
     entry.set("name", "Package");
     entry.set("route", "/#packages");
-    entry.set("event", "packages:show");
+    entry.set("eventId", "packages");
     entry.set("htmlId", "packages-icon");
     entry.set("seqNum", 2);
     console.log("adding entry to adminbar: " + entry.get("name"));

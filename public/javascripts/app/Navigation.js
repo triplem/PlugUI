@@ -7,7 +7,7 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
       image: "",
       name: "",
       route: "",
-      event: "",
+      eventId: "",
       htmlId: "",
       style: "",
       seqNum: 100
@@ -33,6 +33,9 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
     click: function(adminbutton) {
       console.log("adminbutton clicked");
       console.log("adminbutton: " + adminbutton);
+      console.log("adminbuttonId: " + adminbutton.currentTarget.id);
+
+      PlugUI.vent.trigger(adminbutton.currentTarget.id + ":show");
     }
   });
 

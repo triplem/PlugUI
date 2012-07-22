@@ -6,7 +6,7 @@
   </li>
 
   <% _.each(items, function(navEntry) { %>
-    <li class="adminbutton <%= navEntry.class %>">
+    <li class="adminbutton <%= navEntry.class %>" id="<%= navEntry.eventId %>">
       <a href="<%= navEntry.route %>">
         <span id="<%= navEntry.htmlId %>" style="<%= navEntry.style %>">
           <img src="<%= navEntry.image %>" title="<%= navEntry.name %>"/>          
