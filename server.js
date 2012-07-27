@@ -56,9 +56,8 @@ var winstonStream = {
     }
 };
 
-
 app.configure(function(){
-	app.use(express.logger({stream:winstonStream}));
+//	app.use(express.logger({stream:winstonStream}));
 
 	app.use(express.bodyParser());
 	

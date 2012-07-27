@@ -1,14 +1,21 @@
 <script type="text/template" id="packages">
-  <div class="two-thirds column statusbox">
-    <h5 style="display:inline-block;">Packages</h5>
-    <div id="package-controls">
-      <span id="previous-button">⬇</span>
-      <span id="current-index"></span>
-      <span id="next-button">⬆</span>
+  <div style="min-height:230px;">
+    <div class="two-thirds column statusbox" style="float:left;">
+      <h5 style="display:inline-block;">Packages</h5>
+      <div id="package-controls">
+        <span id="previous-button">⬇</span>
+        <span id="current-index"></span>
+        <span id="next-button">⬆</span>
+      </div>
+      <div class="etch"></div>
+      <ul id="package-list"></ul>
     </div>
-    <div class="etch"></div>
-    <ul id="package-list"></ul>
+    <div id="item" class="one-third column statusbox" style="float:right;min-height:auto;">
+    </div>
   </div>
+  
+  <div style="clean:both;"> </div>
+
   <div class="one-third column statusbox">
     <h5>Status</h5>
     <div class="etch"></div>

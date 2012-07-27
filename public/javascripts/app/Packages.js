@@ -6,12 +6,12 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 			version: null,
 			repo: null,
 			installed: false
-    }
+    }    
   });
 
   Package.Packages = Backbone.Collection.extend({
   	model: Package.Package,
-  	url: "",
+  	url: "/api/pacman",
   	comparator: function(package) {
   		return package.get("name");
   	}
@@ -19,10 +19,10 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 
   Package.PackageView = Backbone.Marionette.ItemView.extend({
 		tagName: 'div',
-    className: "one-third column statusbox",
+//    className: "one-third column statusbox",
     template: "#packages"		
 
-/**    
+/**
 		initialize: function() {
 			_.bindAll(this, 'render');
 			this.template = 'packages'; //_.template($('#packages-template').html());
@@ -131,18 +131,31 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 **/		
 	});
 
+  Package.PackageCompView = Backbone.Marionette.CompositeView.extend({
+  	itemView: "#package",
+		itemViewContainer: '#item',
+    template: "#packages"
+  });
+
 	PlugUI.vent.on("packages:show", function(){
 		console.log("showing packages");
 		Package.showPackages();
 	});
 
 	Package.showPackages = function(){
-	    var package = new Package.Packages();
+    var packages = new Package.Packages();
+    packages.fetch( {data: $.param( filter = "installed" )});
+
+    var packageView = new Package.PackageCompView({
+    	collection: packages
+    });
 	//    status.fetchStatus();
-			console.log("tesing packages");
+		console.log("tesing packages");
+    PlugUI.layout.main.show(packageView);
+
 
 	    // add trigger, so that navbar is shown ;-)
-	    PlugUI.vent.trigger("navbar:show", "packages-icon");
+    PlugUI.vent.trigger("navbar:show", "packages-icon");
  	};		
 
   Package.Router = Backbone.Marionette.AppRouter.extend({

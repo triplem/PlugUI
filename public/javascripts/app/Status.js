@@ -51,7 +51,7 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
 
   Status.StatusView = Backbone.Marionette.ItemView.extend({
     tagName: "div",
-    className: "one-third column statusbox",
+    className: "one-third column statusbox",  
     template: "#status"
   });
 
@@ -77,6 +77,7 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
     entry.set("image", "/public/images/app/navbar/status.png");
     entry.set("name", "Status");
     entry.set("route", "/#status");
+    entry.set("eventId", "status");    
     entry.set("htmlId", "status-icon");
     entry.set("seqNum", 1);
     console.log("adding entry to adminbar: " + entry.get("name"));

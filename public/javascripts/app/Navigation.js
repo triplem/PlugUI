@@ -32,9 +32,6 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
 
     click: function(adminbutton) {
       console.log("adminbutton clicked");
-      console.log("adminbutton: " + adminbutton);
-      console.log("adminbuttonId: " + adminbutton.currentTarget.id);
-
       PlugUI.vent.trigger(adminbutton.currentTarget.id + ":show");
     }
   });
@@ -44,15 +41,11 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   	Navigation.entries.add(entry);
   };
 
-  Navigation.showNavigation = function() {
-/*
-    console.log("called correctly");
-    var navigationView = new NavigationView({
-      collection: Navigation.entries
-    });
+  PlugUI.vent.on("navbar:show", function(entryId){
+    PlugUI.Navigation.showNavigation(entryId);
+  }) 
 
-    PlugUI.layout.navbar.show(navigationView);
-*/
+  Navigation.showNavigation = function() {
 		PlugUI.Navigation.showNavigation(undefined);
   };
 
@@ -63,7 +56,9 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
     	Navigation.entries.each(function(entry){
   			if (entry.get("htmlId") == entryId) {
   				entry.set("class", "selected");
-  			}
+  			} else {
+          entry.set("class", "");
+        }
     	})
     }
 
@@ -77,10 +72,6 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   PlugUI.addInitializer(function(){
   	Navigation.entries = new Navigation.Entries();
   });
-
- 	PlugUI.vent.on("navbar:show", function(entryId){
- 		PlugUI.Navigation.showNavigation(entryId);
- 	}) 
 
 })
 
