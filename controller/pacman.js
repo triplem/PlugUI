@@ -1,7 +1,7 @@
 var spawn = require('child_process').spawn;
 
 module.exports = function(app) {
-  app.get('/api/pacman', function(req, res) {
+  app.get('/api/packages', function(req, res) {
     // returns a list of all installed packages
     response = {};
     response.success = false;
@@ -23,10 +23,8 @@ module.exports = function(app) {
         var isInstalled;
         // problem herre is localization as well ;-(          
         if (packagesplit[3] != undefined) { 
-          console.log("package is installed");
           isInstalled = true;
         } else {
-          console.log("package is not defined: " + packagesplit[4]);
           isInstalled = false;
         }
 
@@ -39,6 +37,7 @@ module.exports = function(app) {
 
     packagelist.on('exit', function (code) {
       if (code == 0) {
+        console.log("return data - " + packages.length);
         response.success = true;
         response.packages = packages;
       }
@@ -46,7 +45,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/api/pacman/:packageName', function(req, res) {
+  app.get('/api/packages/:packageName', function(req, res) {
     response = {};
     response.success = false;
     packageName = req.params.packageName;

@@ -1,20 +1,25 @@
 PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 
 	Package.Package = Backbone.Model.extend({
+/*
 		defaults: {
 			name: null,
 			version: null,
 			repo: null,
 			installed: false
-    }    
+    }
+*/        
   });
 
   Package.Packages = Backbone.Collection.extend({
   	model: Package.Package,
-  	url: "/api/pacman",
+  	url: "/api/packages",
   	comparator: function(package) {
   		return package.get("name");
-  	}
+  	},
+  	parse: function(data) {
+			return data.packages;
+  	}	
   });
 
   Package.PackageView = Backbone.Marionette.ItemView.extend({
@@ -131,10 +136,17 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 **/		
 	});
 
+	Package.PackageLineview = Backbone.Marionette.ItemView.extend({
+		tagName: 'li',
+//    className: "one-third column statusbox",
+    template: "#package-line"		
+	});
+
   Package.PackageCompView = Backbone.Marionette.CompositeView.extend({
-  	itemView: "#package",
+  	itemView: Package.PackageLineview,
 		itemViewContainer: '#item',
-    template: "#packages"
+    template: "#packages",
+    tagName: "ul"
   });
 
 	PlugUI.vent.on("packages:show", function(){
@@ -143,19 +155,24 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 	});
 
 	Package.showPackages = function(){
+
     var packages = new Package.Packages();
-    packages.fetch( {data: $.param( filter = "installed" )});
+    var package = new Package.Package();
 
-    var packageView = new Package.PackageCompView({
-    	collection: packages
-    });
-	//    status.fetchStatus();
-		console.log("tesing packages");
-    PlugUI.layout.main.show(packageView);
+    packages.fetch( {data: { filter : "installed" }, 
+  									 success: function() {  									 
+  									 	 package = new Package.Package(packages.get(0));
+									     var packageView = new Package.PackageCompView({
+									     	 model: package,
+									     	 collection: packages
+									     });  									 	
+									     PlugUI.layout.main.show(packageView);
 
 
-	    // add trigger, so that navbar is shown ;-)
-    PlugUI.vent.trigger("navbar:show", "packages-icon");
+									 	    // add trigger, so that navbar is shown ;-)
+									     PlugUI.vent.trigger("navbar:show", "packages-icon");
+
+  									 }});
  	};		
 
   Package.Router = Backbone.Marionette.AppRouter.extend({
@@ -167,7 +184,7 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
 	PlugUI.addInitializer(function(options){
     Package.router = new Package.Router({
       controller: PlugUI.Package
-    }); 
+    });
 
     PlugUI.vent.trigger("routing:started");
 
