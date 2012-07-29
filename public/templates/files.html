@@ -1,18 +1,26 @@
-  <script type="text/template" id="files-template">
-    <div class="two-thirds column statusbox">
-      <div id="displayarea">
-        <table id="filelist"></table>
-      </div><!-- displayarea -->
-  
+<script type="text/template" id="files">
+  <div class="two-thirds column statusbox">
+    <div id="displayarea">
+      <table>
+        <tbody id="file-list">
+          <tr class="line" id="fileheader">
+            <td class="icon"><!-- icon is set via class on this td --></td>
+            <td class="name" id="currentpath" valign="middle">L:<%= currentDirectory %></td>
+            <td class="file-toolbar" valign="middle"><!-- nothing to show here --></td>
+          </tr>
+          <tr class="line">
+            <td class="icon parentdir"><!-- icon is set via class on this td --></td>
+            <td class="name" valign="middle">Parent Directory</td>
+            <td class="file-toolbar" valign="middle"><!-- nothing to show here --></td>
+          </tr>
+          <!-- Insert line template here -->
+        </tbody>
+      </table>
+    </div><!-- displayarea -->
+  </div>
 
-    </div>
+  <div id="rightpanel" class="one-third column statusbox">
 
-    <div id="rightpanel" class="one-third column statusbox">
-    
-  
+  </div>
 
-    </div>
-
-    </script>
-
-    
+</script>

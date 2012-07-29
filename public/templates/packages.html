@@ -1,34 +1,30 @@
 <script type="text/template" id="packages">
-  <div style="min-height:230px;">
-    <div class="two-thirds column statusbox" style="float:left;">
-      <h5 style="display:inline-block;">Packages</h5>
-      <div id="package-controls">
-        <span id="previous-button">⬇</span>
-        <span id="current-index"></span>
-        <span id="next-button">⬆</span>
-      </div>
-      <div class="etch"></div>
-      <ul id="package-list">
-        <div id="item">
-          <!-- line items -->
-        </div>
-      </ul>
+  <div class="one-thirds column statusbox">
+    <h5>Status</h5>
+    <div class="etch"></div>
+    <div>Total: <span id="number-all-packages"></span></div>
+    <div>Installed: <span id="number-installed-packages"></span></div>
+    <div>Updates: <span id="number-updates-available"></span></div>    
+  </div>
+
+  <div class="one-thirds column statusbox">
+    <h5 style="display:inline-block;">Packages</h5>
+    <div id="package-controls">
+      <span id="previous-button">⬇</span>
+      <span id="current-index"></span>
+      <span id="next-button">⬆</span>
     </div>
+    <div class="etch"></div>
+    <ul id="package-list">
+      <div id="item">
+        <!-- line items -->
+      </div>
+    </ul>
+  </div>
 <!--
     Single Package, detailed information
     <div id="item" class="one-third column statusbox" style="float:right;min-height:auto;">
     </div>
 -->
-  </div>
-  
-  <div style="clean:both;"> </div>
 
-  <div class="one-third column statusbox">
-    <h5>Status</h5>
-    <div class="etch"></div>
-    <div>Total: <span id="number-all-packages"></span></div>
-    <div>Installed: <span id="number-installed-packages"></span></div>
-    <div>Updates: <span id="number-updates-available"></span></div>
-    
-  </div>
 </script>

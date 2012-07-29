@@ -5,6 +5,7 @@ default:
 development:
   app:
     port: 8080
+    basepath: '/home/triplem'
 test:
   app:
     port: 80

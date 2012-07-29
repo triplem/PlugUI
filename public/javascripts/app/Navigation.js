@@ -52,7 +52,7 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   Navigation.showNavigation = function(entryId) {
     console.log("called correctly");
     if (entryId != undefined) {
-    	console.log("called with entryId");
+    	console.log("called with entryId: " + entryId);
     	Navigation.entries.each(function(entry){
   			if (entry.get("htmlId") == entryId) {
   				entry.set("class", "selected");
