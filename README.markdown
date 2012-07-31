@@ -21,7 +21,7 @@ Install node:
 
 Clone this repo into a location of your choice (e.g. /opt/):
 
-  cd /opt; git clone git://github.com/triplem/PlugUI.git
+	cd /opt; git clone git://github.com/triplem/PlugUI.git
 
 Then install the required node modules:
 
