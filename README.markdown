@@ -2,56 +2,58 @@
 
 PlugUI 2 is a file management and system admin web interface for small ARM based devices running Arch Linux ARM. 
 
-It will run on other distros, but the package manager is geared to use pacman. It will likely become more dependent on pacman when the code moves to using libalpm instead of running subprocesses for upgrade and other actions.
+It will run on other distros, but the package manager is right now geared to use pacman. We are going to provide a specific module for pacman, so that this could be removed and 
+replaced with a different one, but this is not going to be developed by us (at least in the near future).
 
-NOTE: This version is currently under high development, so please see the [TODOs][TODO] for information, on how you could help out. Any help is appreciated. 
+The current version is under high development, it is a rewrite of the older PlugUI code (which was python), using Node.js. The older code is still in this repo in the django branch.
 
-##Code
+The old version was heavily tied to server-side things like django forms and templates, which don't play very nicely with in-browser applications, so PlugUI 2 is a cleanly separated browser 
+and server component, which communicate with each other via a REST API using JSON and at some point probably websockets too. This allows the server to completely ignore anything that doesnt 
+involve running commands, fetching information or checking authentication, while the browser side can completely ignore how all those things are implemented by relying on a clean API.
 
-PlugUI 2 is a rewrite of the older PlugUI code (which was python), using Node.js. The older code is still in this repo in the django branch.
-
-The old version was heavily tied to server-side things like django forms and templates, which don't play very nicely with in-browser applications, so PlugUI 2 is a cleanly separated browser and server component, which communicate with each other via JSON and at some point probably websockets too. This allows the server to completely ignore anything that doesnt involve running commands, fetching information or checking authentication, while the browser side can completely ignore how all those things are implemented by relying on a clean API.
-
-The rewrite isn't anywhere near done yet, so if you want something usable, checkout the django branch of this repo.
+The rewrite isn't anywhere near done yet, so if you want something usable, checkout the project and contribute some stuff.
 
 ##Setup for development
-
-Clone this repo into /opt/:
-
-    cd /opt; git clone git://github.com/archlinuxarm/PlugUI.git
 
 Install node:
 
 	pacman -Sy nodejs
 
+Clone this repo into a location of your choice (e.g. /opt/):
+
+  cd /opt; git clone git://github.com/triplem/PlugUI.git
+
 Then install the required node modules:
 
-	npm install express unixlib each client-sessions
+	npm install
 
-Now symlink the run script and run it:
+Now run the script:
 
-	ln -s /opt/PlugUI/plugui.sh /etc/rc.d/plugui
-	chmod +x /opt/PlugUI/plugui.sh
-	/etc/rc.d/plugui start
+	node server.js
+
+You can adopt the config/app.yaml file to make sure, the application is running on the right port and also to adopt some
+more settings. The basepath is the path, where the file explorer starts. 	
 
 ##Authentication
 
 The current codebase relies on system PAM authentication (denying root by default). This allows users to enter the same username and password via plugui, ssh, or any other system level component. 
 
+NOTE: The authentication needs to get implemented in the latest version.
+
 ##Status 
 
-There is a current status page which shows detailed information about the system running the PlugUI application.
-
-##Dashboard
+There is a current status page which shows detailed information about the system running the PlugUI application. This page was formerly known as the Dashboard. This page will get splitted into 
+the Status (only viewable after login) and the Dashboard, which shows some common information, without the need to login.
 
 The main page of PlugUI is the dashboard, which already has the hard work done for things like showing system load, memory use, etc. Just needs some pretty graphical elements to show it.
 
 Package notifications for new updates are also planned but not implemented in the Node version yet.
 
-
 ##File Browser
 
-The file browser is basic but works pretty well. It's a single page list, clicking a folder name opens that folder, clicking the parent directory link backs up one level.
+The file browser is basic and shows the directory. 
+
+It's a single page list, clicking a folder name opens that folder, clicking the parent directory link backs up one level.
 
 Planned soon are 'more info' buttons for each file, which will pop up a small box containing permissions information, filesize and other details for a file, along with controls to configure sharing of that file.
 
@@ -63,19 +65,17 @@ Layout and behavior both need some tweaking. Sharing and download/media playback
 
 The old version of PlugUI had a simple music playback system integrated with the file browser. The new version will have a global media player with volume control, playlist and so on. 
 
-This depends on the backend api for file downloads so isn't in the codebase yet, but all the big pieces are already there (libraries etc).
+This depends on the backend api for file downloads so isn't in the codebase yet.
 
 ##Package Manager
 
-Not implemented yet but planned to be a simple list of all packages available vs installed, upgrade notifications etc.
-
+Right now all already installed packages are shown. It is planned to show detailed information for a specific package and also to allow to install/remove packages.
 
 ##Settings & users
 
 Currently has a simple list of system users (pulls from /etc/passwd), will be able to add and delete users, change their shell, home folder, password and other basic things.
 
-Settings area will also have basic network settings of some kind, perhaps using NetworkManager but that is not the Arch default so requires more testing.
-
+Settings area will also have basic network settings of some kind, perhaps using NetworkManager, netcfg or something like this,  but that is not the Arch default so requires more testing.
 
 ##API
 
