@@ -6,7 +6,6 @@ It will run on other distros, but the package manager is geared to use pacman. I
 
 NOTE: This version is currently under high development, so please see the [TODOs][TODO] for information, on how you could help out. Any help is appreciated. 
 
-
 ##Code
 
 PlugUI 2 is a rewrite of the older PlugUI code (which was python), using Node.js. The older code is still in this repo in the django branch.
@@ -38,6 +37,10 @@ Now symlink the run script and run it:
 ##Authentication
 
 The current codebase relies on system PAM authentication (denying root by default). This allows users to enter the same username and password via plugui, ssh, or any other system level component. 
+
+##Status 
+
+There is a current status page which shows detailed information about the system running the PlugUI application.
 
 ##Dashboard
 
@@ -88,7 +91,7 @@ Any method which accepts json can also technically accept a standard url encoded
 
 Simple device information, memory stats, load average and uptime. May add more stats in the future.
 
-	POST: /api/status
+	GET: /api/status
 	
 	Accepts: nothing
 	

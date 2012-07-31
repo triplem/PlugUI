@@ -27,21 +27,31 @@ PlugUI.module("File", function(File, PlugUI, Backbone, Marionette, $, _) {
 			return file.get("name").toLowerCase();
 		},
 		parse: function(data) {
+			helper = data.files.length;
 			return data.files;
 		}
 	});
 
 	File.FileLineview = Backbone.Marionette.ItemView.extend({
 		tagName: 'tr',
+		className: 'line',
 //    className: "one-third column statusbox",
     template: "#files-line"		
 	});	
 
 	File.FilesView = Backbone.Marionette.CompositeView.extend({
   	itemView: File.FileLineview,
-		itemViewContainer: '#file-list',
+		itemViewContainer: '#filelist',
     tagName: "displayarea",
-		template: '#files'
+		template: '#files',
+
+    templateHelpers: function () {
+    	var item = this.collection.at(0);
+      return {
+			  currentDirectory: item.get('directory')
+      }
+    },
+
     
 /**			
 			console.log('new files view');
@@ -200,14 +210,10 @@ PlugUI.module("File", function(File, PlugUI, Backbone, Marionette, $, _) {
 
     files.fetch( { success: function() {  									 
   									 	 file = new File.File(files.get(0));
-  									 	 currentDirectory = file.directory;
-  									 	 var header = new File.Head();
-  									 	 header.set({currentDirectory : currentDirectory});	
-
 									     var fileView = new File.FilesView({
-									     	 model: header,
+									     	 model: file,
 									     	 collection: files
-									     });  									 	
+									     });  									     									 	
 									     PlugUI.layout.main.show(fileView);
   									 }});
  	};		
