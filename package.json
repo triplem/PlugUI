@@ -1,6 +1,6 @@
 {
   "name":			"PlugUI",
-	"version":		"1.10.001",
+	"version":		"2.00.001",
 	"private":		true,
 	"description":	"Web interface for Plug computers (running Arch Linux)",
 	"repository" :	{	
