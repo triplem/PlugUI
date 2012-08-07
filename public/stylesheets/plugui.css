@@ -3,9 +3,8 @@
 }
 
 html {
-    background: #F1F1F1 url("/public/images/wrap_noise_bck.jpg") repeat;
+//    background: #F1F1F1 url("/public/images/wrap_noise_bck.jpg") repeat;
     text-shadow: 0px 1px 0px #fff;
-	
 }
 
 * {
@@ -29,6 +28,13 @@ body {
     background:none;
     text-rendering: optimizeLegibility;
 
+}
+
+#header {
+  background: url(../images/app/header/header-bg.gif) repeat-x;
+  height: 145px;
+  width: 100%;
+  background-position:  0px -60px;
 }
 
 .container {
@@ -356,6 +362,26 @@ img#pageloader {
 	cursor:pointer;
 }
 
+.ui-panel ul.gradient li#helpbutton {
+  position:absolute;
+  top:0;
+  right:0;
+  cursor:pointer;
+}
+
+.ui-panel ul.gradient li#helpbutton:active {
+  top:1px;
+}
+
+.ui-panel ul.gradient li#helpbutton-before {
+  border-right: #9BA5AE 1px solid;
+  border-left:none;
+  width:1px;
+  position:absolute;
+  top:0;
+  right:50px;
+}
+
 .ui-panel ul.gradient li#controlbutton {
 	position:absolute;
 	top:0;
@@ -464,6 +490,10 @@ img#pageloader {
 .ui-panel ul.gradient li a span#packages-icon {
 	padding-left:12px;
 	padding-top:8px;
+}
+.ui-panel ul.gradient li a span#help-icon {
+  padding-left:17px;
+  padding-top:12px;
 }
 
 

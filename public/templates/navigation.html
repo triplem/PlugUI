@@ -1,7 +1,7 @@
 <script type="text/template" id="navigation">
   <li class="first" id="userbutton">
     <div id="user-icon">
-      <img src="/public/images/app/navbar/user.png" title="Userpanel"/>
+      <img src="/public/images/app/navbar/user.png" title="Login"/>
     </div>
   </li>
 
@@ -15,7 +15,13 @@
     </li>
   <% }) %>
 
-  <li class="last"></li>
+  <li class="last" id="helpbutton">
+    <a href="/">
+      <span id="help-icon">
+        <img src="/public/images/app/navbar/help.png" title="Help"/>          
+      </span>
+    </a>  
+  </li>
 </script>
 <!--
       <li class="first" id="userbutton">
