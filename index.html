@@ -13,10 +13,14 @@
     <![endif]-->
   </head>
   <body>
+    <a href="https://github.com/triplem/PlugUI"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
     <div class="wrapper">
       <header>
         <h1>PlugUI 2</h1>
-        <p>A custom web interface built for managing a plug, includes a file browser for mounted devices, a package upgrade manager, and some simple OS configuration options.</p>
+        <p>
+          A custom web interface built for managing a ArchLinux ARM based plug.
+        </p>
 
         <p class="view"><a href="https://github.com/triplem/PlugUI">View the Project on GitHub <small>triplem/PlugUI</small></a></p>
 
@@ -27,15 +31,35 @@
           <li><a href="https://github.com/triplem/PlugUI">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
+
       <section>
         <h1>PlugUI 2</h1>
 
-<p>PlugUI 2 is a file management and system admin web interface for small ARM based devices running Arch Linux ARM. </p>
+        <p>
+          PlugUI 2 is a system admin web interface for small ARM based devices running Arch Linux ARM. It is based on the <a href="https://github.com/archlinuxarm/PlugUI">PlugUI module</a> of the <a href="http://archlinuxarm.org">ArchLinux ARM</a> community. They have decided to 
+          use NodeJS instead of an older Python implementation (see branch django in their github-repository). Therfore the whole system is now
+          programmed in Javascript.
+        </p>
 
-<p>It will run on other distros, but the package manager is right now geared to use pacman. We are going to provide a specific module for pacman, so that this could be removed and 
-replaced with a different one, but this is not going to be developed by us (at least in the near future).</p>
+        <p>
+          We are trying to establish this PlugUI as the de-facto standard admin interface for the ArchLinux ARM plattform. There are a couple of alternatives, which are not really "applicable" for the ArchLinux plattform (see Tonido Apps, RaspControl, ...), and we are going to make
+          a better application and fully support the alarm system.  
+        </p>
 
-<p>The current version is under high development, it is a rewrite of the older PlugUI code (which was python), using Node.js. The older code is still in this repo in the django branch.</p>
+        <p>
+          It should run on other distros, but the package manager is right now geared to use pacman. The system is pretty much modularized, so that it should be possible to use other package managers as well, but this is not going to be developed by us (at least in the near future).
+        </p>
+
+        <p>
+          The current version is under high development, it is a rewrite of the older PlugUI code, using Node.js. The older code is still in this repo in the django branch.
+        </p>
+
+        <p>
+          If you are willing to help out, you are more then welcome. Please fork us and provide a pull request. You can also contact us at <a href="mailto:mmay@javafreedom.org">mmay AT javafreedom DOT org</a>. Hope to see you soon.
+        </p>
     
+      </section>        
+    </div>
+      
   </body>
 </html>
