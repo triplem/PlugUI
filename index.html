@@ -42,16 +42,19 @@
         </p>
 
         <p>
-          We are trying to establish this PlugUI as the de-facto standard admin interface for the ArchLinux ARM plattform. There are a couple of alternatives, which are not really "applicable" for the ArchLinux plattform (see Tonido Apps, RaspControl, ...), and we are going to make
-          a better application and fully support the alarm system.  
+          We are trying to establish this PlugUI as the de-facto standard admin interface for the ArchLinux ARM plattform. There are a couple of alternatives, which are not really "applicable" for the ArchLinux plattform (see Tonido Apps, RaspControl, ...), and we are going to make a better application and fully support the alarm system.  
         </p>
 
         <p>
-          It should run on other distros, but the package manager is right now geared to use pacman. The system is pretty much modularized, so that it should be possible to use other package managers as well, but this is not going to be developed by us (at least in the near future).
+          It should run on other distros as well, but the package manager is right now geared to use pacman. The system is pretty much modularized, so that it should be possible to use other package managers as well, but this is not going to be developed by us (at least in the near future).
         </p>
 
         <p>
-          The current version is under high development, it is a rewrite of the older PlugUI code, using Node.js. The older code is still in this repo in the django branch.
+          The current version is under high development, it is a rewrite of the older PlugUI code, using Node.js. The older code is still in this repo in the django branch. 
+          <br/>
+          The system is split into a server part, and a client part. The server part provides a REST API to all offered functionalities, therefor it is possible to connect other systems to this application as well. The client part is based on <a href="http://backbonejs.org/">backbone.js</a> as well as <a href="https://github.com/derickbailey/backbone.marionette">Backbone.Marionette</a>.
+          <br/>
+          Both parts of the appliation are highly modularized, so that is is fairly easy to provide additional functionality and/or exchange already existing functionality. This modularization is one of the main reasons, why we decided to re-organize the application structure. 
         </p>
 
         <p>
