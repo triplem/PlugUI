@@ -37,4 +37,9 @@ PlugUI.module("Routing", function(Routing, PlugUI, Backbone, Marionette, $, _){
     return route;
   }
 
+  Routing.addInitializer(function(){
+    console.log("hello...");
+
+  });
+
 });

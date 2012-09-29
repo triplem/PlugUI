@@ -198,9 +198,9 @@ PlugUI.module("User", function(User, PlugUI, Backbone, Marionette, $, _) {
     }
   });  
 
-	PlugUI.addInitializer(function(options){
+	User.addInitializer(function(options){
     User.router = new User.Router({
-      controller: PlugUI.User
+      controller: User
     });
 
     PlugUI.vent.trigger("routing:started");

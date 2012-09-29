@@ -224,9 +224,9 @@ PlugUI.module("File", function(File, PlugUI, Backbone, Marionette, $, _) {
     }
   });  
 
-	PlugUI.addInitializer(function(options){
+	File.addInitializer(function(options){
     File.router = new File.Router({
-      controller: PlugUI.File
+      controller: File
     });
 
     PlugUI.vent.trigger("routing:started");

@@ -31,7 +31,7 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
     },
 
     click: function(adminbutton) {
-      console.log("adminbutton clicked");
+      console.log("adminbutton clicked for id: " + adminbutton.currentTarget.id);
       PlugUI.vent.trigger(adminbutton.currentTarget.id + ":show");
     }
   });
@@ -69,7 +69,7 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
     PlugUI.layout.navbar.show(navigationView);
   };
 
-  PlugUI.addInitializer(function(){
+  Navigation.addInitializer(function(){
   	Navigation.entries = new Navigation.Entries();
   });
 

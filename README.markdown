@@ -17,22 +17,22 @@ The rewrite isn't anywhere near done yet, so if you want something usable, check
 
 Install node:
 
-	pacman -Sy nodejs
+  pacman -Sy nodejs
 
 Clone this repo into a location of your choice (e.g. /opt/):
 
-	cd /opt; git clone git://github.com/triplem/PlugUI.git
+  cd /opt; git clone git://github.com/triplem/PlugUI.git
 
 Then install the required node modules:
 
-	npm install
+  npm install
 
 Now run the script:
 
-	node server.js
+  node server.js
 
 You can adopt the config/app.yaml file to make sure, the application is running on the right port and also to adopt some
-more settings. The basepath is the path, where the file explorer starts. 	
+more settings. The basepath is the path, where the file explorer starts.   
 
 ##Authentication
 
@@ -91,147 +91,147 @@ Any method which accepts json can also technically accept a standard url encoded
 
 Simple device information, memory stats, load average and uptime. May add more stats in the future.
 
-	GET: /api/status
-	
-	Accepts: nothing
-	
-	Returns: json
-	
-	Details: All sizes are in bytes, all times are in seconds.
-	
-	Sample: { "success":true, 
-			  "freemem":14774272,
-			  "memused":238837760, 
-			  "totalmem":253612032,
-			  "loadavg":[5.8623046875,5.5654296875,5.21826171875], 
-			  "uptime":498867.340181713, 
-			  "hostname": "athene",
-			  "type": "Linux",
-			  "release": "3.4.4-2-ARCH",
-			  "platform": "linux",
-			  "arch": "arm",
-			  "version": "1.10.001" }
-	
+  GET: /api/status
+  
+  Accepts: nothing
+  
+  Returns: json
+  
+  Details: All sizes are in bytes, all times are in seconds.
+  
+  Sample: { "success":true, 
+        "freemem":14774272,
+        "memused":238837760, 
+        "totalmem":253612032,
+        "loadavg":[5.8623046875,5.5654296875,5.21826171875], 
+        "uptime":498867.340181713, 
+        "hostname": "athene",
+        "type": "Linux",
+        "release": "3.4.4-2-ARCH",
+        "platform": "linux",
+        "arch": "arm",
+        "version": "1.10.001" }
+  
 ###Auth
 
 Assists the frontend in validating existing sessions or authenticating a user, creates a cookie session if successful.
 
-	POST: /api/auth
-	
-	Accepts: json
-	
-	Returns: json
-	
-	Details: 3 commands so far, 'check', 'login' and 'logout'. 
-			 Check avoids requiring the frontend to authenticate when a session already exists.
-	
-	
+  POST: /api/auth
+  
+  Accepts: json
+  
+  Returns: json
+  
+  Details: 3 commands so far, 'check', 'login' and 'logout'. 
+       Check avoids requiring the frontend to authenticate when a session already exists.
+  
+  
 ####Check for a session 
 
-	Request: { apicmd: 'check' }
-	
-	Response: { success: true|false, authenticated: true|false, username: username }
-	
-	
+  Request: { apicmd: 'check' }
+  
+  Response: { success: true|false, authenticated: true|false, username: username }
+  
+  
 ####Login 
 
-	Request: { apicmd: 'login', username: 'username', password: 'password' }
-	
-	Response: { success: true|false, authenticated: true|false, username: username }
-	
+  Request: { apicmd: 'login', username: 'username', password: 'password' }
+  
+  Response: { success: true|false, authenticated: true|false, username: username }
+  
 ####Logout
 
-	Request: { apicmd: 'logout' }
-	
-	Response: { success: true|false }
+  Request: { apicmd: 'logout' }
+  
+  Response: { success: true|false }
 
 ###Users
 
 Allows the frontend to manage system users
 
-	POST: /api/users
-	
-	Accepts: json
-	
-	Returns: json
-	
-	Details: This is a jsonified wrapper around some unix tools for working with system users. 
-			 The user list is all inclusive, frontend must show or hide them as appropriate.
-	
+  POST: /api/users
+  
+  Accepts: json
+  
+  Returns: json
+  
+  Details: This is a jsonified wrapper around some unix tools for working with system users. 
+       The user list is all inclusive, frontend must show or hide them as appropriate.
+  
 ####List users 
 
-	Request: { apicmd: 'list' }
-	
-	Response: { "success":true,
-				"userlist": [
-					{"username":"root","uid":"0","gid":"0","homedir":"/root","shell":"/bin/bash"},
-					{"username":"bin","uid":"1","gid":"1","homedir":"/bin","shell":"/bin/false"},
-					{"username":"daemon","uid":"2","gid":"2","homedir":"/sbin","shell":"/bin/false"},
-					{"username":"mail","uid":"8","gid":"12","homedir":"/var/spool/mail","shell":"/bin/false"},
-					{"username":"ftp","uid":"14","gid":"11","homedir":"/srv/ftp","shell":"/bin/false"},
-					{"username":"http","uid":"33","gid":"33","homedir":"/srv/http","shell":"/bin/false"},
-					{"username":"nobody","uid":"99","gid":"99","homedir":"/","shell":"/bin/false"},
-					{"username":"dbus","uid":"81","gid":"81","homedir":"/","shell":"/bin/false"},
-					{"username":"ntp","uid":"87","gid":"87","homedir":"/var/empty","shell":"/bin/false"},
-					{"username":"steve","uid":"501","gid":"100","homedir":"/home/steve","shell":"/bin/bash"}
-				]
-			 }
-	
-	
+  Request: { apicmd: 'list' }
+  
+  Response: { "success":true,
+        "userlist": [
+          {"username":"root","uid":"0","gid":"0","homedir":"/root","shell":"/bin/bash"},
+          {"username":"bin","uid":"1","gid":"1","homedir":"/bin","shell":"/bin/false"},
+          {"username":"daemon","uid":"2","gid":"2","homedir":"/sbin","shell":"/bin/false"},
+          {"username":"mail","uid":"8","gid":"12","homedir":"/var/spool/mail","shell":"/bin/false"},
+          {"username":"ftp","uid":"14","gid":"11","homedir":"/srv/ftp","shell":"/bin/false"},
+          {"username":"http","uid":"33","gid":"33","homedir":"/srv/http","shell":"/bin/false"},
+          {"username":"nobody","uid":"99","gid":"99","homedir":"/","shell":"/bin/false"},
+          {"username":"dbus","uid":"81","gid":"81","homedir":"/","shell":"/bin/false"},
+          {"username":"ntp","uid":"87","gid":"87","homedir":"/var/empty","shell":"/bin/false"},
+          {"username":"steve","uid":"501","gid":"100","homedir":"/home/steve","shell":"/bin/bash"}
+        ]
+       }
+  
+  
 ####Create a user
 
-	Unimplemented
-	
+  Unimplemented
+  
 ####Delete a user
 
-	Unimplemented
+  Unimplemented
 
 
 ###Files 
 
 Allows for simple directory listing, file download, delete
 
-	POST: /api/files
+  POST: /api/files
  
-	Accepts: json
+  Accepts: json
  
-	Returns: json|binary file (depending on the command)
+  Returns: json|binary file (depending on the command)
  
-	Details: File list is sandboxed inside /media by path standardization followed by regex matching. 
-			 All requested paths are relative to that directory, this may change in the future.
-			 All returned sizes are in bytes.
-			 Files without any extension will not have a 'type' property, check its length before using.
-	
+  Details: File list is sandboxed inside /media by path standardization followed by regex matching. 
+       All requested paths are relative to that directory, this may change in the future.
+       All returned sizes are in bytes.
+       Files without any extension will not have a 'type' property, check its length before using.
+  
 
 ####Directory list
 
-		Request: { apicmd: 'directory_list', path: "/build" }
-		
-		Response: { "success":true, 
-					"requestpath": "/media/build",
-					"validpath": true,
-					"files": [ 
-						{"type":"conf","fullpath":"/media/build/motion.conf","directory":"/media/build","name":"motion.conf","isFolder":false,"size":23997},
-						{"type":"tar","fullpath":"/media/build/clang_3.0-3ubuntu1.debian.tar","directory":"/media/build","name":"clang_3.0-3ubuntu1.debian.tar","isFolder":false,"size":112640},
-						{"type":"folder","fullpath":"/media/build/PKGBUILDs","directory":"/media/build","name":"PKGBUILDs","isFolder":true,"size":12},
-						{"type":"folder","fullpath":"/media/build/Temporary Items","directory":"/media/build","name":"Temporary Items","isFolder":true,"size":3},
-						{"type":"folder","fullpath":"/media/build/cam","directory":"/media/build","name":"cam","isFolder":true,"size":3},
-						{"type":"folder","fullpath":"/media/build/node_modules","directory":"/media/build","name":"node_modules","isFolder":true,"size":9},
-						{"type":"folder","fullpath":"/media/build/PlugUI","directory":"/media/build","name":"PlugUI","isFolder":true,"size":19},
-						{"type":"py","fullpath":"/media/build/led.py","directory":"/media/build","name":"led.py","isFolder":false,"size":1185},
-						{"type":"gz","fullpath":"/media/build/cloud9-git.tar.gz","directory":"/media/build","name":"cloud9-git.tar.gz","isFolder":false,"size":1658},
-						{"type":"folder","fullpath":"/media/build/llvm","directory":"/media/build","name":"llvm","isFolder":true,"size":20},
-						{"type":"c","fullpath":"/media/build/hello.c","directory":"/media/build","name":"hello.c","isFolder":false,"size":80},
-						{"type":"i","fullpath":"/media/build/hello.i","directory":"/media/build","name":"hello.i","isFolder":false,"size":17259},
-						{"type":"folder","fullpath":"/media/build/Network Trash Folder","directory":"/media/build","name":"Network Trash Folder","isFolder":true,"size":3},
-						{"type":"folder","fullpath":"/media/build/meta-texasinstruments","directory":"/media/build","name":"meta-texasinstruments","isFolder":true,"size":14},
-						{"type":"folder","fullpath":"/media/build/cloud9-git","directory":"/media/build","name":"cloud9-git","isFolder":true,"size":9},
-						{"type":"folder","fullpath":"/media/build/log","directory":"/media/build","name":"log","isFolder":true,"size":3},
-						{"type":"folder","fullpath":"/media/build/build","directory":"/media/build","name":"build","isFolder":true,"size":7},
-						{"type":"folder","fullpath":"/media/build/libobjc2","directory":"/media/build","name":"libobjc2","isFolder":true,"size":4},
-						{"type":"folder","fullpath":"/media/build/lost+found","directory":"/media/build","name":"lost+found","isFolder":true,"size":3} 
-					]
-				}
-	
-	
-	
+    Request: { apicmd: 'directory_list', path: "/build" }
+    
+    Response: { "success":true, 
+          "requestpath": "/media/build",
+          "validpath": true,
+          "files": [ 
+            {"type":"conf","fullpath":"/media/build/motion.conf","directory":"/media/build","name":"motion.conf","isFolder":false,"size":23997},
+            {"type":"tar","fullpath":"/media/build/clang_3.0-3ubuntu1.debian.tar","directory":"/media/build","name":"clang_3.0-3ubuntu1.debian.tar","isFolder":false,"size":112640},
+            {"type":"folder","fullpath":"/media/build/PKGBUILDs","directory":"/media/build","name":"PKGBUILDs","isFolder":true,"size":12},
+            {"type":"folder","fullpath":"/media/build/Temporary Items","directory":"/media/build","name":"Temporary Items","isFolder":true,"size":3},
+            {"type":"folder","fullpath":"/media/build/cam","directory":"/media/build","name":"cam","isFolder":true,"size":3},
+            {"type":"folder","fullpath":"/media/build/node_modules","directory":"/media/build","name":"node_modules","isFolder":true,"size":9},
+            {"type":"folder","fullpath":"/media/build/PlugUI","directory":"/media/build","name":"PlugUI","isFolder":true,"size":19},
+            {"type":"py","fullpath":"/media/build/led.py","directory":"/media/build","name":"led.py","isFolder":false,"size":1185},
+            {"type":"gz","fullpath":"/media/build/cloud9-git.tar.gz","directory":"/media/build","name":"cloud9-git.tar.gz","isFolder":false,"size":1658},
+            {"type":"folder","fullpath":"/media/build/llvm","directory":"/media/build","name":"llvm","isFolder":true,"size":20},
+            {"type":"c","fullpath":"/media/build/hello.c","directory":"/media/build","name":"hello.c","isFolder":false,"size":80},
+            {"type":"i","fullpath":"/media/build/hello.i","directory":"/media/build","name":"hello.i","isFolder":false,"size":17259},
+            {"type":"folder","fullpath":"/media/build/Network Trash Folder","directory":"/media/build","name":"Network Trash Folder","isFolder":true,"size":3},
+            {"type":"folder","fullpath":"/media/build/meta-texasinstruments","directory":"/media/build","name":"meta-texasinstruments","isFolder":true,"size":14},
+            {"type":"folder","fullpath":"/media/build/cloud9-git","directory":"/media/build","name":"cloud9-git","isFolder":true,"size":9},
+            {"type":"folder","fullpath":"/media/build/log","directory":"/media/build","name":"log","isFolder":true,"size":3},
+            {"type":"folder","fullpath":"/media/build/build","directory":"/media/build","name":"build","isFolder":true,"size":7},
+            {"type":"folder","fullpath":"/media/build/libobjc2","directory":"/media/build","name":"libobjc2","isFolder":true,"size":4},
+            {"type":"folder","fullpath":"/media/build/lost+found","directory":"/media/build","name":"lost+found","isFolder":true,"size":3} 
+          ]
+        }
+  
+  
+  

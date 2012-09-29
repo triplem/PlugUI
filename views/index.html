@@ -70,6 +70,8 @@
     $(function(){
       // Start the app on jQuery's DOMReady. The app
       // itself is defined in the javascripts/app/PlugUI.js file.
+
+    	PlugUI.vent.trigger("routing:finished");      
       PlugUI.start();
     });
   </script>	

@@ -253,9 +253,3 @@ function update_packages() {
            }
     });
 }
-
-
-
-
-
-

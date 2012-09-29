@@ -65,9 +65,9 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
     PlugUI.Status.showUniqueStatus();
   });
 
-  PlugUI.addInitializer(function(options){
+  Status.addInitializer(function(options){
     Status.router = new Status.Router({
-      controller: PlugUI.Status
+      controller: Status
     }); 
 
     PlugUI.vent.trigger("routing:started");    

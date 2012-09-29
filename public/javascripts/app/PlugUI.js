@@ -11,8 +11,12 @@ PlugUI.addRegions({
 });
 
 PlugUI.bind("routing:started", function(options){
-  Backbone.history.start();
   PlugUI.Navigation.showNavigation();
+});
+
+PlugUI.bind("initialize:after", function(optionns) {
+  console.log("initialize:after");
+  Backbone.history.start();
 });
 
 // Set up async template loading from the server. A view with

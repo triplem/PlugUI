@@ -149,10 +149,12 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
     tagName: "ul"
   });
 
+/**
 	PlugUI.vent.on("packages:show", function(){
 		console.log("showing packages");
 		Package.showPackages();
 	});
+**/
 
 	Package.showPackages = function(){
 
@@ -181,9 +183,9 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
     }
   });  
 
-	PlugUI.addInitializer(function(options){
+	Package.addInitializer(function(){
     Package.router = new Package.Router({
-      controller: PlugUI.Package
+      controller: Package
     });
 
     PlugUI.vent.trigger("routing:started");
@@ -197,6 +199,7 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
     entry.set("htmlId", "packages-icon");
     entry.set("seqNum", 2);
     console.log("adding entry to adminbar: " + entry.get("name"));
+    
     PlugUI.Navigation.addEntry(entry);		
 
 	})

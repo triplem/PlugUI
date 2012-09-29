@@ -1,11 +1,7 @@
-// Backbone.Marionette v0.9.3
-//
-// Copyright (C)2012 Derick Bailey, Muted Solutions, LLC
-// Distributed Under MIT License
-//
-// Documentation and Full License Available at:
-// http://github.com/derickbailey/backbone.marionette
-
+// Backbone.Marionette.Async, v0.2.0
+// Copyright (c)2012 Derick Bailey, Muted Solutions, LLC.
+// Distributed under MIT license
+// http://github.com/derickbailey/backbone.marionette.async
 // Marionette.Async
 // ----------------
 
@@ -44,25 +40,25 @@ Async.ItemView = {
 
       var deferredData = that.serializeData();
       $.when(deferredData).then(dataSerialized);
-    } 
+    };
 
     var dataSerialized = function(data){
       var template = that.getTemplate();
       var asyncRender = Marionette.Renderer.render(template, data);
       $.when(asyncRender).then(templateRendered);
-    }
+    };
 
     var templateRendered = function(html){
       that.$el.html(html);
       callDeferredMethod(that.onRender, onRenderDone, that);
-    }
+    };
 
     var onRenderDone = function(){
       that.trigger("render", that);
       that.trigger("item:rendered", that);
 
       deferredRender.resolve();
-    }
+    };
 
     callDeferredMethod(this.beforeRender, beforeRenderDone, this);
 
@@ -82,6 +78,7 @@ Async.CollectionView = {
 
     this.triggerBeforeRender();
 
+    this.closeEmptyView();
     this.closeChildren();
 
     if (this.collection && this.collection.length > 0) {
@@ -107,8 +104,8 @@ Async.CollectionView = {
   showCollection: function(){
     var that = this;
     var promises = [];
-    var ItemView = this.getItemView();
 
+    var ItemView = this.getItemView();
     this.collection.each(function(item, index){
       var promise = that.addItemView(item, ItemView, index);
       promises.push(promise);
@@ -123,8 +120,8 @@ Async.CollectionView = {
   showEmptyView: function(promises){
     var promise;
     var EmptyView = this.options.emptyView || this.emptyView;
-    if (EmptyView){
-      this.showingEmptyView = true;
+    if (EmptyView && !this._showingEmptyView){
+      this._showingEmptyView = true;
       var model = new Backbone.Model();
       promise = this.addItemView(model, EmptyView, 0);
     }
@@ -139,7 +136,7 @@ Async.CollectionView = {
     });
     return viewRendered;
   }
-}
+};
 
 // Async Composite View
 // --------------------
@@ -181,7 +178,7 @@ Async.CompositeView = {
     });
     return collectionDeferred.promise();
   }
-}
+};
 
 // Async Region
 // ------------
@@ -340,7 +337,6 @@ _.extend(Async.TemplateCache.prototype, {
   }
 });
 
-
 // Async Helpers
 // -------------
 
@@ -353,7 +349,7 @@ var callDeferredMethod = function(fn, callback, context){
   var promise;
   if (fn) { promise = fn.call(context); }
   $.when(promise).then(_.bind(callback, context));
-}
+};
 
 // Initialize the async-modules
 Async.init();
