@@ -17,7 +17,7 @@ PlugUI.bind("routing:started", function(options){
 PlugUI.bind("initialize:after", function(optionns) {
   console.log("initialize:after");
   Backbone.history.start();
-  Backbone.history.navigate("packages", true);
+  Backbone.history.navigate("status", true);
 
 });
 
