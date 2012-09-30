@@ -196,11 +196,6 @@ PlugUI.module("File", function(File, PlugUI, Backbone, Marionette, $, _) {
 **/		
 	});
 
-	PlugUI.vent.on("files:show", function(){
-		console.log("showing files");
-		File.showFiles();
-	});
-
 	File.showFiles = function(){
     // add trigger, so that navbar is shown ;-)
     PlugUI.vent.trigger("navbar:show", "files-icon");

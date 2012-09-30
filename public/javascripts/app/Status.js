@@ -61,10 +61,6 @@ PlugUI.module("Status", function(Status, PlugUI, Backbone, Marionette, $, _) {
     }
   });  
 
-  PlugUI.vent.bind("status:show", function(){
-    PlugUI.Status.showUniqueStatus();
-  });
-
   Status.addInitializer(function(options){
     Status.router = new Status.Router({
       controller: Status

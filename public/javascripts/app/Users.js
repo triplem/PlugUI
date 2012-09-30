@@ -167,11 +167,6 @@ PlugUI.module("User", function(User, PlugUI, Backbone, Marionette, $, _) {
 **/		
 	});
 
-	PlugUI.vent.on("users:show", function(){
-		console.log("showing users");
-		User.showUsers();
-	});
-
 	User.showUsers = function(){
 
     var users = new User.Users();

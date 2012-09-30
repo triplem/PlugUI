@@ -26,14 +26,6 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   	className: "gradient",
   	template: "#navigation",
 
-    events: {
-      'click .adminbutton': 'click'
-    },
-
-    click: function(adminbutton) {
-      console.log("adminbutton clicked for id: " + adminbutton.currentTarget.id);
-      PlugUI.vent.trigger(adminbutton.currentTarget.id + ":show");
-    }
   });
 
   Navigation.addEntry = function(entry) {

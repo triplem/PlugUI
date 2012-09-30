@@ -149,13 +149,6 @@ PlugUI.module("Package", function(Package, PlugUI, Backbone, Marionette, $, _) {
     tagName: "ul"
   });
 
-/**
-	PlugUI.vent.on("packages:show", function(){
-		console.log("showing packages");
-		Package.showPackages();
-	});
-**/
-
 	Package.showPackages = function(){
 
     var packages = new Package.Packages();
