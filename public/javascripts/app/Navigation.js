@@ -25,7 +25,6 @@ PlugUI.module("Navigation", function(Navigation, PlugUI, Backbone, Marionette, $
   	tagName: "ul",
   	className: "gradient",
   	template: "#navigation",
-
   });
 
   Navigation.addEntry = function(entry) {
